@@ -1,0 +1,235 @@
+[
+  {
+    "program": "Major in Statistics (B.Sc.)",
+    "requirements": [
+      "SCIE 113",
+      "CPSC 110 (or CPSC 103 and CPSC 107)",
+      "DSCI 100",
+      "MATH 100 or 102 or 104 (or 120 or 180 or 184)",
+      "MATH 101 or 103 or 105 (or 121)",
+      "CPSC 210 or MATH 210",
+      "MATH 200",
+      "MATH 220",
+      "MATH 221",
+      "MATH 307",
+      "MATH 303"
+    ],
+    "stats_requirements": [
+      { "code": "STAT200" },
+      { "code": "STAT201" },
+      { "code": "STAT302" },
+      { "code": "STAT301" },
+      { "code": "STAT305" },
+      { "code": "STAT306" },
+      { "code": "STAT404" }
+    ],
+    "additional_requirements": [
+      "Additional Communication Requirement (3 credits)",
+      "STAT courses numbered 300 or above (6 credits)",
+      "STAT courses numbered 400 or above (6 credits)",
+      "MATH courses numbered 300 or above (3 credits)",
+      "Thematic concentration courses numbered 300 or above (9 credits)",
+      "Electives must also satisfy Faculty of Science degree requirements (foundational/lab breadth/science & arts/upper-level/etc.)"
+    ]
+  },
+  {
+    "program": "Combined Major in Statistics and Economics (B.Sc.)",
+    "requirements": [
+      "SCIE 113",
+      "CPSC 110 (or CPSC 103 and CPSC 107)",
+      "DSCI 100",
+      "ECON 101",
+      "ECON 102",
+      "MATH 104 (or one of 100, 102, 120, 180, 184)",
+      "MATH 105 (or one of 101, 103, 121)",
+      "CPSC 210 or MATH 210",
+      "ECON 325 or STAT 200",
+      "MATH 200 (or 226)",
+      "MATH 220",
+      "MATH 221 (or 223)",
+      "ECON 301 (or 304)",
+      "ECON 302 (or 305)",
+      "Either (a) ECON 326 and STAT 301 OR (b) ECON 398 and STAT 306",
+      "ECON 490",
+      "MATH 303 or 307"
+    ],
+    "stats_requirements": [
+      { "code": "STAT200" },
+      { "code": "STAT302" },
+      { "code": "STAT301" },
+      { "code": "STAT306" },
+      { "code": "STAT305" },
+      { "code": "STAT404" },
+      { "code": "STAT443" }
+    ],
+    "additional_requirements": [
+      "Admission is subject to the admission restrictions/application process for the Major in Economics",
+      "Additional Communication Requirement (3 credits)",
+      "Economics courses numbered 200 or above (3 credits)",
+      "Economics courses numbered 300 or above (3 credits)",
+      "Economics courses numbered 400 or above (3 credits)",
+      "Statistics courses numbered 300 or above (3 credits)",
+      "Statistics courses numbered 400 or above (3 credits)",
+      "If STAT 200 is chosen (via the ECON 325 or STAT 200 choice), an additional ECON elective numbered 300+ must be taken to ensure at least 30 ECON credits",
+      "Electives must also satisfy Faculty of Science degree requirements (foundational/lab breadth/science & arts/upper-level/etc.)"
+    ]
+  },
+  {
+    "program": "Combined Major in Computer Science and Statistics (B.Sc.)",
+    "requirements": [
+      "SCIE 113",
+      "CPSC 110 (or CPSC 103 and CPSC 107)",
+      "CPSC 121",
+      "DSCI 100",
+      "MATH 100 or 102 or 104 (or 180 or 184 or 120 or 110)",
+      "MATH 101 or 103 or 105 (or 121)",
+      "CPSC 210",
+      "CPSC 213",
+      "CPSC 221",
+      "CPSC 310",
+      "CPSC 313",
+      "CPSC 320",
+      "MATH 200",
+      "MATH 221",
+      "MATH 303",
+      "MATH 307"
+    ],
+    "stats_requirements": [
+      { "code": "STAT200" },
+      { "code": "STAT201" },
+      { "code": "STAT302" },
+      { "code": "STAT305" },
+      { "code": "STAT306" }
+    ],
+    "additional_requirements": [
+      "Additional Communication Requirement (3 credits)",
+      "CPSC courses numbered 300 or above (6 credits)",
+      "CPSC courses numbered 400 or above (6 credits) — at least 3 credits must be from 400-level CPSC lecture-based courses",
+      "STAT courses numbered 300 or above (6 credits)",
+      "STAT courses numbered 400 or above (3 credits)",
+      "Admission must be approved by both departments",
+      "Electives must also satisfy Faculty of Science degree requirements (foundational/lab breadth/science & arts/upper-level/etc.)"
+    ]
+  },
+  {
+    "program": "Honours in Statistics (B.Sc.)",
+    "requirements": [
+      "SCIE 113",
+      "CPSC 110 (or CPSC 103 and CPSC 107)",
+      "DSCI 100",
+      "MATH 120 or 180 or 184 (or 100 or 102 or 104)",
+      "MATH 101 or 103 or 105 (or 121)",
+      "CPSC 210 or MATH 210",
+      "MATH 226 (or 200)",
+      "MATH 220",
+      "MATH 223 or 221",
+      "MATH 227 or 317",
+      "MATH 303",
+      "MATH 307",
+      "MATH 320",
+      "MATH 321",
+      "MATH 418",
+      "MATH 419",
+      "MATH 420",
+      "MATH 421"
+    ],
+    "stats_requirements": [
+      { "code": "STAT200" },
+      { "code": "STAT201" },
+      { "code": "STAT302" },
+      { "code": "STAT305" },
+      { "code": "STAT306" },
+      { "code": "STAT404" },
+      { "code": "STAT460" },
+      { "code": "STAT461" }
+    ],
+    "additional_requirements": [
+      "Admission/continuation notes (Calendar): departmental approval required; must meet stated minimums; must maintain an overall 68% average each year",
+      "Additional Communication Requirement (3 credits)",
+      "STAT courses numbered 300 or above (3 credits)",
+      "STAT courses numbered 400 or above (6 credits)",
+      "Additional CPSC/DSCI/MATH courses numbered 300 or above (6 credits)",
+      "In 4th year: 6 credits chosen from MATH 418/419/420/421 and/or additional STAT 400+ (course-choice requirement)",
+      "Electives must also satisfy Faculty of Science degree requirements (foundational/lab breadth/science & arts/upper-level/etc.)"
+    ]
+  },
+  {
+    "program": "Combined Honours in Mathematics and Statistics (B.Sc.)",
+    "requirements": [
+      "SCIE 113",
+      "CPSC 110 (or CPSC 103 and CPSC 107)",
+      "MATH 120 or 180 or 184 (or 100 or 102 or 104)",
+      "MATH 101 or 103 or 105 (or 121)",
+      "MATH 223 (or 221)",
+      "MATH 226 (or 200)",
+      "MATH 227 (or 317)",
+      "MATH 215",
+      "CPSC 210 or MATH 210",
+      "MATH 303",
+      "MATH 320",
+      "MATH 321",
+      "9 credits chosen from: MATH 300, 301, 316, 322, 323, 331"
+    ],
+    "stats_requirements": [
+      { "code": "STAT200" },
+      { "code": "STAT302" },
+      { "code": "STAT305" },
+      { "code": "STAT306" },
+      { "code": "STAT404" },
+      { "code": "STAT460" },
+      { "code": "STAT461" }
+    ],
+    "additional_requirements": [
+      "Admission/continuation notes (Calendar): program approval required (both departments); must meet stated minimums; must maintain an overall 68% average each year",
+      "Additional Communication Requirement (3 credits)",
+      "Students without credit for Physics 12 must take PHYS 100",
+      "STAT courses numbered 300 or above (6 credits)",
+      "STAT courses numbered 400 and above (3 credits)",
+      "12 credits from specified upper-level MATH list (course-choice requirement)",
+      "Electives must also satisfy Faculty of Science degree requirements (foundational/lab breadth/science & arts/upper-level/etc.)"
+    ]
+  },
+  {
+    "program": "Combined Honours in Computer Science and Statistics (B.Sc.)",
+    "requirements": [
+      "SCIE 113",
+      "CPSC 110 (or CPSC 103 and CPSC 107)",
+      "CPSC 121",
+      "DSCI 100",
+      "MATH 120 (or 100 or 102 or 104 or 180 or 184 or 110)",
+      "MATH 121 (or 101 or 103 or 105)",
+      "CPSC 210",
+      "CPSC 213",
+      "CPSC 221",
+      "CPSC 302",
+      "CPSC 303",
+      "CPSC 304",
+      "CPSC 310",
+      "CPSC 320",
+      "MATH 220",
+      "MATH 223 or 221",
+      "MATH 226 (or 200)",
+      "MATH 303",
+      "MATH 307",
+      "MATH 320"
+    ],
+    "stats_requirements": [
+      { "code": "STAT200" },
+      { "code": "STAT201" },
+      { "code": "STAT302" },
+      { "code": "STAT306" },
+      { "code": "STAT460" },
+      { "code": "STAT461" }
+    ],
+    "additional_requirements": [
+      "Computer Science Honours/Combined Honours admission/continuation: approval from CS Honours advisor required; must meet stated minimum averages",
+      "Additional Communication Requirement (3 credits)",
+      "CPSC courses numbered 300 and above (6 credits)",
+      "CPSC courses numbered 400 and above (6 credits) — at least 3 credits must be from 400-level CPSC lecture-based courses",
+      "STAT courses numbered 300 or above (3 credits)",
+      "STAT courses numbered 400 and above (3 credits)",
+      "6 credits chosen from: CPSC 340, CPSC 420, MATH 418/419/420/421, and/or additional STAT 400+ (course-choice requirement)",
+      "Electives must also satisfy Faculty of Science degree requirements (foundational/lab breadth/science & arts/upper-level/etc.)"
+    ]
+  }
+]

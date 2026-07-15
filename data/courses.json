@@ -1,0 +1,466 @@
+[
+  {
+    "code": "STAT200",
+    "title": "Elementary Statistics for Applications",
+    "description": "Classical, nonparametric, and robust inferences about means, variances, and analysis of variance, using computers. Emphasis on problem formulation, assumptions, and interpretation.",
+    "credits": 3,
+    "hours": [3, 1, 0],
+    "prereqs": {
+      "any": [
+        {"code": "MATH100"},
+        {"code": "MATH110"},
+        {"code": "MATH120"},
+        {"code": "MATH180"},
+        {"code": "MATH190"},
+        {"code": "SCIE001"}
+      ]
+    }
+  },
+  {
+    "code": "STAT201",
+    "title": "Statistical Inference for Data Science",
+    "description": "Classical and simulation-based techniques for estimation and hypothesis testing, including inference for means and proportions. Emphasis on case studies and real data sets, as well as reproducible and transparent workflows when writing computer scripts for analysis and reports.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "all": [
+        {"code": "DSCI100"}
+      ]
+    }
+  },
+  {
+    "code": "STAT203",
+    "title": "Statistical Methods",
+    "description": "Organizing, displaying and summarizing data. Inference estimation and testing for elementary probability models. Not for credit towards a B.Sc.",
+    "credits": 3,
+    "hours": [3, 1, 0]
+  },
+  {
+    "code": "STAT251",
+    "title": "Elementary Statistics",
+    "description": "Probability, discrete and continuous random variables, joint probability distributions, estimation, hypothesis testing, regression, analysis of variance, goodness of fit.",
+    "credits": 3,
+    "hours": [3, 1, 0],
+    "prereqs": {
+      "any": [
+        {"code": "MATH101"},
+        {"code": "MATH103"},
+        {"code": "MATH105"},
+        {"code": "MATH121"},
+        {"code": "SCIE001"}
+      ]
+    }
+  },
+  {
+    "code": "STAT300",
+    "title": "Intermediate Statistics for Applications",
+    "description": "Further topics in statistical inference, including parametric and non-parametric methods, goodness-of-fit methods, analysis of variance and covariance, regression analysis, categorical data analysis, experimental designs, time series, model fitting, and statistical computing.",
+    "credits": 3,
+    "hours": [3, 1, 0],
+    "prereqs": {
+      "any": [
+        {"code": "STAT200"},
+        {"code": "STAT203"},
+        {"code": "STAT251"},
+        {"code": "BIOL300"},
+        {"code": "BUSI291"},
+        {"code": "COMM191"},
+        {"code": "COMM291"},
+        {"code": "ECON325"},
+        {"code": "ECON327"},
+        {"code": "FRST231"},
+        {"code": "POLI380"},
+        {"code": "PSYC218"},
+        {"code": "PSYC278"},
+        {"code": "KIN206"},
+        {"code": "LFS252"}
+      ]
+    }
+  },
+  {
+    "code": "STAT301",
+    "title": "Statistical Modelling for Data Science",
+    "description": "Data analysis using statistical models and algorithms (e.g., linear and logistic regression, peeking, bandit, and variable selection algorithms) in case studies from different disciplines. Generative versus out-of-sample predictive models. Reproducible and transparent workflows for computer scripts and reports.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "all": [
+        {"code": "STAT201"},
+        {
+          "any": [
+            {"code": "MATH100"},
+            {"code": "MATH110"},
+            {"code": "MATH120"},
+            {"code": "MATH180"},
+            {"code": "SCIE001"}
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "code": "STAT302",
+    "title": "Introduction to Probability",
+    "description": "Basic notions of probability, random variables, expectation and conditional expectation, limit theorems.",
+    "credits": 3,
+    "hours": [3, 0, 0],
+    "prereqs": {
+      "any": [
+        {"code": "MATH200"},
+        {"code": "MATH226"},
+        {"code": "MATH217"},
+        {"code": "MATH253"},
+        {"code": "MATH254"}
+      ]
+    }
+  },
+  {
+    "code": "STAT305",
+    "title": "Introduction to Statistical Inference",
+    "description": "Review of probability theory. Sampling distribution theory, large sample theory and methods of estimation and hypothesis testing, including maximum likelihood estimation, likelihood ratio testing and confidence interval construction.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "any": [
+        {
+          "all": [
+            {
+              "any": [
+                {"code": "STAT200"},
+                {"code": "STAT203"},
+                {"code": "BIOL300"},
+                {"code": "STAT251"},
+                {"code": "COMM291"},
+                {"code": "ECON325"},
+                {"code": "FRST231"},
+                {"code": "PSYC218"},
+                {"code": "PSYC366"}
+              ]
+            },
+            {
+              "any": [
+                {"code": "MATH302"},
+                {"code": "STAT302"}
+              ]
+            }
+          ]
+        },
+        {
+          "all": [
+            {"code": "DSCI200"},
+            {"code": "STAT201"},
+            {
+              "any": [
+                {"code": "MATH302"},
+                {"code": "STAT302"}
+              ]
+            }
+          ]
+        },
+        {
+          "any": [
+            {"code": "MATH302", "grade": 65},
+            {"code": "STAT302", "grade": 65}
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "code": "STAT306",
+    "title": "Finding Relationships in Data",
+    "description": "Modelling a response (output) variable as a function of several explanatory (input) variables: multiple regression for a continuous response, logistic regression for a binary response, and log-linear models for count data. Finding low-dimensional structure: principal components analysis. Cluster analysis.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "all": [
+        {
+          "any": [
+            {"code": "MATH152"},
+            {"code": "MATH221"},
+            {"code": "MATH223"}
+          ]
+        },
+        {
+          "any": [
+            {"code": "STAT200"},
+            {"code": "STAT251"},
+            {"code": "STAT300"},
+            {"code": "BIOL300"},
+            {"code": "BUSI291"},
+            {"code": "COMM191"},
+            {"code": "COMM291"},
+            {"code": "ECON325"},
+            {"code": "ECON327"},
+            {"code": "FRST231"},
+            {"code": "PSYC218"},
+            {"code": "PSYC278"}
+          ]
+        },
+        {
+          "any": [
+            {"code": "MATH302"},
+            {"code": "STAT302"}
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "code": "STAT307",
+    "title": "Statistics Laboratory I",
+    "description": "Implementing theory in applications. Problem based learning. Generation and analysis of case data. Modelling, computation and reporting.",
+    "credits": 2,
+    "hours": [0, 4, 0],
+    "coreqs": {
+      "all": [
+        {"code": "STAT306"}
+      ]
+    }
+  },
+  {
+    "code": "STAT308",
+    "title": "Statistics Laboratory II",
+    "description": "Continuation of STAT 307.",
+    "credits": 1,
+    "hours": [0, 2, 0],
+    "prereqs": {
+      "all": [
+        {"code": "STAT307"}
+      ]
+    }
+  },
+  {
+    "code": "STAT321",
+    "title": "Stochastic Signals and Systems",
+    "description": "Stochastic behaviour of signals and systems (e.g., communication systems); discrete and continuous probability; random processes; modelling and identification of linear time-invariant systems; binary hypothesis testing and decision making.",
+    "credits": 4,
+    "hours": [3, 0, 2],
+    "prereqs": {
+      "any": [
+        {"code": "ELEC221"},
+        {"code": "STAT305"}
+      ]
+    }
+  },
+  {
+    "code": "STAT335",
+    "title": "Statistics in Quality Assurance",
+    "description": "Philosophy of quality improvement and total quality control. Definitions of quality. Deming's principles, Ishikawa's tools, control charts, acceptance sampling, continuous improvement, quality design.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "any": [
+        {"code": "STAT200"},
+        {"code": "STAT251"},
+        {"code": "BIOL300"}
+      ]
+    }
+  },
+  {
+    "code": "STAT344",
+    "title": "Sample Surveys",
+    "description": "Planning and practice of sample surveys. Random sampling, bias and variance, unequal probability sampling, systematic, multistage and stratified sampling, ratio and regression estimators, post-stratification, establishing a frame, pretesting, pilot studies, nonresponse and additional topics.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "any": [
+        {"code": "STAT200"},
+        {"code": "STAT251"},
+        {"code": "BIOL300"},
+        {"code": "COMM291"},
+        {"code": "ECON325"},
+        {"code": "ECON327"},
+        {"code": "FRST231"},
+        {"code": "PSYC218"},
+        {"code": "PSYC278"},
+        {"code": "PSYC366"}
+      ]
+    },
+    "coreqs": {
+      "any": [
+        {"code": "MATH302"},
+        {"code": "STAT302"}
+      ]
+    }
+  },
+  {
+    "code": "STAT404",
+    "title": "Design and Analysis of Experiments",
+    "description": "Theory and application of analysis of variance for standard experimental designs, including blocked, nested, factorial and split plot designs. Fixed and random effects, multiple comparisons, analysis of covariance.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "all": [
+        {"code": "STAT305"},
+        {
+          "any": [
+            {"code": "MATH152"},
+            {"code": "MATH221"},
+            {"code": "MATH223"}
+          ]
+        }
+      ]
+    },
+    "coreqs": {
+      "any": [
+        {"code": "ECON326"},
+        {"code": "STAT306"}
+      ]
+    }
+  },
+  {
+    "code": "STAT405",
+    "title": "Bayesian Statistics",
+    "description": "Bayesian approaches to statistical inference: probabilistic modelling, Bayesian inference workflows, approximation of posterior distributions supported by modelling languages, analysis of Bayesian procedures and posterior approximation methods.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "all": [
+        {
+          "any": [
+            {"code": "MATH302"},
+            {"code": "STAT302"},
+            {"code": "MATH418"}
+          ]
+        },
+        {
+          "any": [
+            {"code": "STAT305"},
+            {"code": "STAT460"}
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "code": "STAT406",
+    "title": "Methods for Statistical Learning",
+    "description": "Flexible, data-adaptive methods for regression and classification models; regression smoothers; penalty methods; assessing accuracy of prediction; model selection; robustness; classification and regression trees; nearest-neighbour methods; neural networks; model averaging and ensembles; computational time and visualization for large data sets.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "any": [
+        {
+          "any": [
+            {"code": "STAT306"},
+            {"code": "CPSC340"}
+          ]
+        },
+        {
+          "all": [
+            {"code": "STAT301"},
+            {
+              "any": [
+                {"code": "MATH152"},
+                {"code": "MATH221"},
+                {"code": "MATH223"}
+              ]
+            },
+            {
+              "any": [
+                {"code": "MATH302"},
+                {"code": "STAT302"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "code": "STAT443",
+    "title": "Time Series and Forecasting",
+    "description": "Trend and seasonality, autocorrelation, stationarity, stochastic models, exponential smoothing, Holt-Winters methods, Box-Jenkins approach, frequency domain analysis.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "all": [
+        {
+          "any": [
+            {"code": "MATH302"},
+            {"code": "MATH318"},
+            {"code": "STAT302"}
+          ]
+        },
+        {
+          "any": [
+            {"code": "STAT200"},
+            {"code": "STAT251"},
+            {"code": "STAT300"},
+            {"code": "BIOL300"},
+            {"code": "COMM291"},
+            {"code": "ECON325"},
+            {"code": "ECON327"},
+            {"code": "FRST231"},
+            {"code": "POLI380"},
+            {"code": "PSYC218"},
+            {"code": "PSYC278"},
+            {"code": "PSYC366"}
+          ]
+        }
+      ]
+    },
+    "coreqs": {
+      "all": [
+        {"code": "STAT305"}
+      ]
+    }
+  },
+  {
+    "code": "STAT445",
+    "title": "Introduction to Exploratory Data Analysis",
+    "description": "Methods for exploring and presenting the structure of data: one group of numbers, several groups, bivariate data, time series data and two-way tables. Data displays, outlier identification, transformations, resistant regression, several types of data smoothing, comparisons with standard statistical methods.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "all": [
+        {"code": "STAT306"}
+      ]
+    }
+  },
+  {
+    "code": "STAT450",
+    "title": "Case Studies in Statistics",
+    "description": "Readings and projects in areas of current statistical application including environmental science, industrial statistics, official statistics, actuarial statistics, and medical statistics.",
+    "credits": 3,
+    "hours": [3, 0, 1],
+    "prereqs": {
+      "all": [
+        {"code": "STAT306"}
+      ]
+    }
+  },
+  {
+    "code": "STAT460",
+    "title": "Statistical Inference I",
+    "description": "Statistical models and their properties, estimation methods, properties of point and interval estimation, likelihood, Bayesian inference. Intended for Honours students.",
+    "credits": 3,
+    "hours": [3, 0, 0],
+    "prereqs": {
+      "all": [
+        {"code": "MATH320"},
+        {"code": "STAT305"},
+        {
+          "any": [
+            {"code": "MATH152"},
+            {"code": "MATH221"},
+            {"code": "MATH223"}
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "code": "STAT461",
+    "title": "Statistical Inference II",
+    "description": "Hypothesis testing and model selection in modern statistics, confidence regions, multiple testing, model comparison criteria. Intended for Honours students.",
+    "credits": 3,
+    "hours": [3, 0, 0],
+    "prereqs": {
+      "all": [
+        {"code": "STAT460"}
+      ]
+    }
+  }
+]
