@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Computer Science Concentration</title>
+
+	<!-- Tailwind CSS CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- Local JS -->
+	<script src="/static/concentration.js" defer></script>
+</head>
+
+<body class="p-4 bg-gray-50 w-full min-h-screen md:max-h-screen flex flex-col gap-y-4">
+
+	<!-- Title -->
+	<div class="relative flex items-center justify-center">
+		<a href="/thematic-concentration" class="absolute left-0 text-blue-700 underline">&larr; Back to Thematic Concentration</a>
+		<h1 class="text-gray-900 text-3xl font-bold text-center">Computer Science Concentration</h1>
+	</div>
+
+	<p class="text-gray-900 text-center text-sm">
+		Select up to 3 courses you plan to take. The graph will highlight the prerequisites and corequisites you'll need.
+	</p>
+
+	<!-- Allowed concentration course buttons -->
+	<div id="concentration-buttons" class="flex flex-wrap justify-center gap-2">
+		{% for course in allowedCourses %}
+			<div
+				class="concentration-button rounded-full py-1 px-4 text-sm cursor-pointer bg-blue-200 hover:bg-blue-300 text-gray-900"
+				data-code="{{ course.code }}"
+			>
+				{{ course.subject }} {{ course.number }}
+			</div>
+		{% endfor %}
+	</div>
+
+	<!-- Course Map and Information Section -->
+	<div class="md:grid md:grid-cols-3 gap-x-4 flex-1 min-w-0 min-h-0">
+
+		<!-- Course Map SVG generated in app.py -->
+		<div class="rounded-lg border border-gray-900 col-span-2 flex-row bg-white overflow-hidden h-full p-2">
+			{{ courseMap | safe }}
+		</div>
+
+		<div class="col-span-1 overflow-auto">
+
+			<!-- Summary of every course needed for the current selection -->
+			<div id="course-summary" class="hidden mb-4 p-3 rounded-lg border border-blue-300 bg-blue-50">
+				<h2 class="text-lg font-bold text-gray-900">Courses You'll Need</h2>
+				<ul id="course-summary-list" class="list-disc pl-6 my-2 text-gray-900"></ul>
+			</div>
+
+			<!-- Course Information Legend (hidden on mobile)-->
+			<div class="hidden md:block">
+				<h2 class="text-lg font-bold mb text-gray-900">Course Information Legend</h2>
+				<ul class="list-disc pl-6 my-2">
+					<li><strong>Solid lines</strong>: Prerequisites</li>
+					<li><strong>Dashed lines</strong>: Corequisites</li>
+					<li><strong>Blue courses</strong>: Selected, or a prerequisite/corequisite for a selected course</li>
+				</ul>
+			</div>
+
+			<!-- List of Course Details -->
+			{% for course in courseData %}
+			<div class="course-details mt-4 hidden" id="{{ course.code }}">
+				<h2 class="text-lg font-bold text-gray-900">{{ course.subject }} {{ course.number }}</h2>
+				{% if course.prereq_codes %}
+				<p class="mt-2"><strong>Prerequisites:</strong> {{ course.prereq_codes | join(', ') }}</p>
+				{% endif %}
+				{% if course.coreq_codes %}
+				<p class="mt-2"><strong>Corequisites:</strong> {{ course.coreq_codes | join(', ') }}</p>
+				{% endif %}
+				{% if not course.prereq_codes and not course.coreq_codes %}
+				<p class="mt-2">No prerequisites or corequisites.</p>
+				{% endif %}
+			</div>
+			{% endfor %}
+
+		</div>
+
+	</div>
+</body>
+
+</html>
