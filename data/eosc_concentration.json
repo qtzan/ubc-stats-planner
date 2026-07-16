@@ -1,0 +1,22 @@
+[
+  { "code": "EOSC325", "allowed": true, "prereqs": { "all": [{"code": "MATH101"}] } },
+  { "code": "EOSC340", "allowed": true, "prereqs": { "all": [{"code": "CHEM121"}, {"code": "MATH101"}, {"code": "PHYS101"}] } },
+  { "code": "EOSC345", "allowed": true },
+  { "code": "EOSC410", "allowed": true, "prereqs": { "all": [{"code": "STAT200"}, {"code": "MATH221"}, {"code": "CPSC210"}] } },
+  { "code": "EOSC440", "allowed": true, "prereqs": { "all": [{"code": "CPSC210"}, {"code": "MATH200"}, {"code": "EOSC112"}] } },
+  { "code": "EOSC442", "allowed": true, "prereqs": { "all": [{"code": "EOSC340"}, {"code": "CPSC110"}, {"code": "STAT200"}] } },
+  { "code": "BIOL301", "allowed": true, "coreqs": { "all": [{"code": "STAT200"}] } },
+  { "code": "ENVR440", "allowed": true, "prereqs": { "all": [{"code": "ENVR200"}] } },
+
+  { "code": "PHYS101" },
+  { "code": "EOSC112" },
+  { "code": "CHEM121" },
+  { "code": "ENVR200" },
+  { "code": "CPSC110" },
+  { "code": "CPSC210", "prereqs": { "all": [{"code": "CPSC110"}] } },
+  { "code": "MATH100" },
+  { "code": "MATH101", "prereqs": { "all": [{"code": "MATH100"}] } },
+  { "code": "MATH200", "prereqs": { "all": [{"code": "MATH101"}] } },
+  { "code": "MATH221", "prereqs": { "all": [{"code": "MATH100"}] } },
+  { "code": "STAT200", "prereqs": { "all": [{"code": "MATH100"}] } }
+]

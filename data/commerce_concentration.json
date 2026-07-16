@@ -1,0 +1,20 @@
+[
+  { "code": "COMM324", "allowed": true, "prereqs": { "all": [{"code": "STAT200"}, {"code": "COMM203"}, {"code": "COMM205"}] } },
+  { "code": "COMM414", "allowed": true, "prereqs": { "all": [{"code": "COMM204"}] } },
+  { "code": "COMM457", "allowed": true },
+  { "code": "COMM458", "allowed": true, "prereqs": { "all": [{"code": "COMM457"}] } },
+  { "code": "COMM465", "allowed": true, "coreqs": { "all": [{"code": "ECON101"}, {"code": "ECON102"}] } },
+  { "code": "COMM473", "allowed": true, "prereqs": { "all": [{"code": "ECON101"}, {"code": "ECON102"}, {"code": "MATH100"}] }, "coreqs": { "all": [{"code": "COMM293"}] } },
+  { "code": "COMM486I", "allowed": true },
+
+  { "code": "COMM203" },
+  { "code": "COMM205", "prereqs": { "all": [{"code": "COMM192"}, {"code": "ECON101"}, {"code": "ECON102"}] } },
+  { "code": "COMM192" },
+  { "code": "COMM204", "prereqs": { "all": [{"code": "COMM190"}, {"code": "STAT200"}] } },
+  { "code": "COMM190", "coreqs": { "all": [{"code": "MATH100"}] } },
+  { "code": "COMM293", "prereqs": { "all": [{"code": "MATH100"}] } },
+  { "code": "STAT200", "prereqs": { "all": [{"code": "MATH100"}] } },
+  { "code": "MATH100" },
+  { "code": "ECON101" },
+  { "code": "ECON102" }
+]

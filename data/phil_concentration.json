@@ -1,0 +1,10 @@
+[
+  { "code": "PHIL321", "allowed": true, "prereqs": { "all": [{"code": "PHIL125"}] } },
+  { "code": "PHIL322", "allowed": true, "prereqs": { "all": [{"code": "PHIL220"}] } },
+  { "code": "PHIL337", "allowed": true },
+  { "code": "PHIL360", "allowed": true },
+  { "code": "PHIL369", "allowed": true },
+
+  { "code": "PHIL125" },
+  { "code": "PHIL220" }
+]

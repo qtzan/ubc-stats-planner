@@ -12,9 +12,10 @@ def is_stat(code):
     return isinstance(code, str) and code.startswith('STAT')
 
 
-# Split a course code into its subject and number, e.g. "AI322" -> ("AI", "322")
+# Split a course code into its subject and number, e.g. "AI322" -> ("AI", "322"),
+# keeping any trailing section letter attached to the number, e.g. "PSYC305A" -> ("PSYC", "305A")
 def split_code(code):
-    match = re.match(r'([A-Za-z]+)(\d+)', code)
+    match = re.match(r'([A-Za-z]+)(\d+[A-Za-z]*)', code)
     return match.group(1), match.group(2)
 
 
@@ -89,7 +90,15 @@ def generateGraph(courseData, code_filter=is_stat):
         else:
             dot_links.append(f'"{target}" -> "{source}" [color="gray95"]; ')
 
-    links_str = '\n'.join(dot_links)
+    # Explicitly declare every course as a node so ones with no prereqs and that
+    # aren't a prereq for anything else (e.g. standalone electives) still appear
+    node_declarations = []
+    for course in courseData:
+        if code_filter(course['code']):
+            subject, number = split_code(course['code'])
+            node_declarations.append(f'"{subject}\n{number}";')
+
+    body = '\n'.join(dot_links + node_declarations)
 
     return f"""digraph {{
         outputorder="edgesfirst";
@@ -97,7 +106,7 @@ def generateGraph(courseData, code_filter=is_stat):
         splines="line";
         node [style=filled fillcolor="#f2f2f2"];
         edge [penwidth=1];
-        {links_str}
+        {body}
     }}
     """
 
@@ -155,18 +164,29 @@ def index():
 def thematic_concentration():
     return render_template("thematic_concentration.html")
 
-@app.route('/thematic-concentration/computer-science')
-def cpsc_concentration():
-    courseData = loadConcentrationData('cpsc_concentration.json')
-    courseGraph = generateGraph(courseData, code_filter=lambda c: True)
-    courseMap = make_svg_responsive(subprocess.check_output(['dot', '-Tsvg'], input=courseGraph.encode()).decode('utf-8'))
-    allowedCourses = [course for course in courseData if course.get('allowed')]
-    return render_template("cpsc_concentration.html", courseMap=courseMap, courseData=courseData, allowedCourses=allowedCourses)
+# Maps each thematic concentration's URL slug to its course data file and page title
+CONCENTRATIONS = {
+    'computer-science': ('cpsc_concentration.json', 'Computer Science Concentration'),
+    'economics': ('econ_concentration.json', 'Economics Concentration'),
+    'psychology': ('psych_concentration.json', 'Psychology Concentration'),
+    'commerce': ('commerce_concentration.json', 'Commerce Concentration'),
+    'life-sciences': ('life_sciences_concentration.json', 'Life Sciences Concentration'),
+    'environmental-science': ('eosc_concentration.json', 'Environmental Science Concentration'),
+    'philosophy': ('phil_concentration.json', 'Philosophy Concentration'),
+}
 
 @app.route('/thematic-concentration/<field>')
 def concentration_field(field):
-    name = field.replace('-', ' ').title()
-    return render_template("concentration_field.html", field=name)
+    if field not in CONCENTRATIONS:
+        name = field.replace('-', ' ').title()
+        return render_template("concentration_field.html", field=name)
+
+    filename, title = CONCENTRATIONS[field]
+    courseData = loadConcentrationData(filename)
+    courseGraph = generateGraph(courseData, code_filter=lambda c: True)
+    courseMap = make_svg_responsive(subprocess.check_output(['dot', '-Tsvg'], input=courseGraph.encode()).decode('utf-8'))
+    allowedCourses = [course for course in courseData if course.get('allowed')]
+    return render_template("concentration_graph.html", title=title, courseMap=courseMap, courseData=courseData, allowedCourses=allowedCourses)
 
 if __name__ == '__main__':
     app.run(debug=True)

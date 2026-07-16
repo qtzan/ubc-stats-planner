@@ -1,0 +1,17 @@
+[
+  { "code": "PSYC303", "allowed": true, "prereqs": { "all": [{"code": "PSYC218"}] } },
+  { "code": "PSYC304", "allowed": true, "prereqs": { "all": [{"code": "PSYC100"}] } },
+  { "code": "PSYC305", "allowed": true, "prereqs": { "all": [{"code": "PSYC100"}] } },
+  { "code": "PSYC305A", "allowed": true, "prereqs": { "all": [{"code": "PSYC100"}] } },
+  { "code": "PSYC314", "allowed": true, "prereqs": { "all": [{"code": "PSYC102"}, {"code": "PSYC217"}] } },
+  { "code": "PSYC325", "allowed": true, "prereqs": { "all": [{"code": "PSYC102"}, {"code": "PSYC217"}] } },
+  { "code": "PSYC359", "allowed": true, "prereqs": { "all": [{"code": "PSYC218"}] } },
+  { "code": "PSYC401", "allowed": true, "prereqs": { "all": [{"code": "PSYC217"}] } },
+  { "code": "PSYC402", "allowed": true, "prereqs": { "all": [{"code": "PSYC217"}] } },
+  { "code": "ASTU402", "allowed": true },
+
+  { "code": "PSYC218", "prereqs": { "all": [{"code": "PSYC217"}] } },
+  { "code": "PSYC217", "prereqs": { "all": [{"code": "PSYC100"}] } },
+  { "code": "PSYC100" },
+  { "code": "PSYC102" }
+]
