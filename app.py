@@ -111,5 +111,9 @@ def index():
     programs = loadPrograms('programs.json')
     return render_template("index.html", courseMap=courseMap, courseData=courseData, programs=programs)
 
+@app.route('/thematic-concentration')
+def thematic_concentration():
+    return render_template("thematic_concentration.html")
+
 if __name__ == '__main__':
     app.run(debug=True)
