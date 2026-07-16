@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import subprocess
 import json
+import re
 
 
 app = Flask(__name__)
@@ -85,6 +86,12 @@ def generateGraph(courseData):
     """
 
 
+# Replace the fixed pt width/height that dot emits with 100% so the SVG
+# scales down to fit its container instead of overflowing and scrolling
+def make_svg_responsive(svg):
+    return re.sub(r'<svg width="\d+pt" height="\d+pt"', '<svg width="100%" height="100%"', svg, count=1)
+
+
 def loadData(filename):
     with open(f'data/{filename}') as f:
         courses = json.load(f)
@@ -107,13 +114,18 @@ def loadPrograms(filename):
 def index():
     courseData = loadData("courses.json")
     courseGraph = generateGraph(courseData)
-    courseMap = subprocess.check_output(['dot', '-Tsvg'], input=courseGraph.encode()).decode('utf-8')
+    courseMap = make_svg_responsive(subprocess.check_output(['dot', '-Tsvg'], input=courseGraph.encode()).decode('utf-8'))
     programs = loadPrograms('programs.json')
     return render_template("index.html", courseMap=courseMap, courseData=courseData, programs=programs)
 
 @app.route('/thematic-concentration')
 def thematic_concentration():
     return render_template("thematic_concentration.html")
+
+@app.route('/thematic-concentration/<field>')
+def concentration_field(field):
+    name = field.replace('-', ' ').title()
+    return render_template("concentration_field.html", field=name)
 
 if __name__ == '__main__':
     app.run(debug=True)
