@@ -1,10 +1,98 @@
 [
-  { "code": "PHIL321", "allowed": true, "prereqs": { "all": [{"code": "PHIL125"}] } },
-  { "code": "PHIL322", "allowed": true, "prereqs": { "all": [{"code": "PHIL220"}] } },
-  { "code": "PHIL337", "allowed": true },
-  { "code": "PHIL360", "allowed": true },
-  { "code": "PHIL369", "allowed": true },
-
-  { "code": "PHIL125" },
-  { "code": "PHIL220" }
+  {
+    "code": "PHIL321",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "PHIL125"
+        }
+      ]
+    },
+    "title": "Induction, Decision and Game Theory",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Formal methods relevant to probabilistic and inductive reasoning. Decision theory, game theory, axiomatic probability theory and its interpretations, belief dynamics, simulation and modelling."
+  },
+  {
+    "code": "PHIL322",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "PHIL220"
+        }
+      ]
+    },
+    "title": "Modal Logic",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Logic of the modal operators 'it is necessary that' and 'it is possible that'. Possible-world semantics and a method of derivation for this logic."
+  },
+  {
+    "code": "PHIL337",
+    "allowed": true,
+    "title": "Ethics for the Sciences",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Philosophical exploration of ethical issues in the non-medical sciences, including topics such as intellectual integrity, responsible conduct of research, and protection of human subjects."
+  },
+  {
+    "code": "PHIL360",
+    "allowed": true,
+    "title": "Introduction to History and Philosophy of Science",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "An examination of the historical, conceptual and methodological conditions of scientific knowledge through detailed consideration of important episodes in the history of science."
+  },
+  {
+    "code": "PHIL369",
+    "allowed": true,
+    "title": "Philosophy of Science",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Issues common to all sciences. Philosophical questions including the character of scientific laws, theories and revolutions, the nature of scientific confirmation, causality, explanation and prediction."
+  },
+  {
+    "code": "PHIL125",
+    "title": "Introduction to Scientific Reasoning",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Historical and logical analysis of various types of scientific hypotheses and the data that support or undermine them."
+  },
+  {
+    "code": "PHIL220",
+    "title": "Symbolic Logic",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Sentential and predicate logic. Translation from natural language; truth tables and interpretations; systems of natural deduction up to relational predicate logic with identity."
+  }
 ]

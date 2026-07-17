@@ -358,10 +358,9 @@ def loadData(filename):
         courses = json.load(f)
 
     for course in courses:
-        num = course["code"][4:]
-        course ["grades_url"] = f"https://ubcgrades.com/statistics-by-course#UBCV-STAT-{num}"
-           
-        
+        subject, number = split_code(course['code'])
+        course['grades_url'] = f"https://ubcgrades.com/statistics-by-course#UBCV-{subject}-{number}"
+
     return courses
 
 def loadPrograms(filename):
@@ -384,6 +383,7 @@ def loadConcentrationData(filename):
         course['number'] = number
         course['prereq_codes'] = flatten_codes(course.get('prereqs'))
         course['coreq_codes'] = flatten_codes(course.get('coreqs'))
+        course['grades_url'] = f"https://ubcgrades.com/statistics-by-course#UBCV-{subject}-{number}"
 
     return courses
 

@@ -3,6 +3,10 @@
 // prompt-to-continue modal used by any login-gated action)
 // ---------------------------------------------------------------------------
 
+// The server renders this as a data attribute (rather than inline in a
+// <script> tag) so the template's Jinja syntax never ends up inside JS
+window.IS_LOGGED_IN = document.body.dataset.loggedIn === 'true';
+
 const authModal = document.getElementById('auth-modal');
 const authModalPrompt = document.getElementById('auth-modal-prompt');
 const authError = document.getElementById('auth-error');

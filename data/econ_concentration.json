@@ -1,29 +1,517 @@
 [
-  { "code": "ECON301", "allowed": true, "prereqs": { "all": [{"code": "ECON101"}, {"code": "MATH100"}, {"code": "MATH101"}] } },
-  { "code": "ECON302", "allowed": true, "prereqs": { "all": [{"code": "ECON101"}, {"code": "ECON102"}, {"code": "MATH100"}, {"code": "MATH101"}] } },
-  { "code": "ECON310", "allowed": true, "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "ECON320", "allowed": true, "prereqs": { "all": [{"code": "ECON101"}, {"code": "ECON102"}, {"code": "MATH100"}, {"code": "MATH101"}] } },
-  { "code": "ECON345", "allowed": true, "prereqs": { "all": [{"code": "ECON101"}, {"code": "ECON102"}] } },
-  { "code": "ECON355", "allowed": true, "prereqs": { "all": [{"code": "ECON101"}, {"code": "ECON102"}] } },
-  { "code": "ECON356", "allowed": true, "prereqs": { "all": [{"code": "ECON101"}, {"code": "ECON102"}] } },
-  { "code": "ECON367", "allowed": true, "prereqs": { "all": [{"code": "ECON101"}, {"code": "ECON102"}] } },
-  { "code": "ECON370", "allowed": true, "prereqs": { "all": [{"code": "ECON101"}] } },
-  { "code": "ECON398", "allowed": true, "prereqs": { "all": [{"code": "ECON101"}] } },
-  { "code": "ECON420", "allowed": true, "prereqs": { "all": [{"code": "MATH200"}, {"code": "ECON301"}] } },
-  { "code": "ECON421", "allowed": true, "prereqs": { "all": [{"code": "ECON301"}] } },
-  { "code": "ECON425", "allowed": true, "prereqs": { "all": [{"code": "STAT306"}] } },
-  { "code": "ECON426", "allowed": true, "prereqs": { "all": [{"code": "ECON425"}] } },
-  { "code": "ECON447", "allowed": true, "prereqs": { "all": [{"code": "ECON301"}, {"code": "ECON302"}] } },
-  { "code": "ECON456", "allowed": true, "prereqs": { "all": [{"code": "ECON302"}] } },
-  { "code": "ECON473", "allowed": true, "prereqs": { "all": [{"code": "ECON301"}, {"code": "STAT306"}] } },
-
-  { "code": "ECON101" },
-  { "code": "ECON102" },
-  { "code": "MATH100" },
-  { "code": "MATH101", "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "MATH200", "prereqs": { "all": [{"code": "MATH101"}] } },
-  { "code": "MATH221", "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "STAT200", "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "STAT302", "prereqs": { "all": [{"code": "MATH200"}] } },
-  { "code": "STAT306", "prereqs": { "all": [{"code": "MATH221"}, {"code": "STAT200"}, {"code": "STAT302"}] } }
+  {
+    "code": "ECON301",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON101"
+        },
+        {
+          "code": "MATH100"
+        },
+        {
+          "code": "MATH101"
+        }
+      ]
+    },
+    "title": "Intermediate Microeconomic Analysis I",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Consumer behaviour, producer theory, equilibrium, welfare economics, uncertainty, monopoly and oligopoly."
+  },
+  {
+    "code": "ECON302",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON101"
+        },
+        {
+          "code": "ECON102"
+        },
+        {
+          "code": "MATH100"
+        },
+        {
+          "code": "MATH101"
+        }
+      ]
+    },
+    "title": "Intermediate Macroeconomic Analysis I",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Income and employment theory, monetary theory, open economy dynamics, economic fluctuations and growth."
+  },
+  {
+    "code": "ECON310",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Principles of Microeconomics with Calculus",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Introduction to consumer behaviour, producer theory, competitive market equilibrium, welfare economics, monopoly, oligopoly, and strategic interactions, using differential calculus."
+  },
+  {
+    "code": "ECON320",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON101"
+        },
+        {
+          "code": "ECON102"
+        },
+        {
+          "code": "MATH100"
+        },
+        {
+          "code": "MATH101"
+        }
+      ]
+    },
+    "title": "Introduction to Mathematical Economics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Applies calculus to economics, including comparative static analysis and simple dynamic models."
+  },
+  {
+    "code": "ECON345",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON101"
+        },
+        {
+          "code": "ECON102"
+        }
+      ]
+    },
+    "title": "Money and Banking",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Financial markets, Canadian financial system development, financial regulation, monetary control, and central banking theory and history."
+  },
+  {
+    "code": "ECON355",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON101"
+        },
+        {
+          "code": "ECON102"
+        }
+      ]
+    },
+    "title": "Introduction to International Trade",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Trade pattern determinants, trade policy, tariff and non-tariff barriers, protectionism, trade disputes, and liberalization effects."
+  },
+  {
+    "code": "ECON356",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON101"
+        },
+        {
+          "code": "ECON102"
+        }
+      ]
+    },
+    "title": "Introduction to International Finance",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Exchange rate regimes, international financial organizations, monetary policy interactions, and financial crises."
+  },
+  {
+    "code": "ECON367",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON101"
+        },
+        {
+          "code": "ECON102"
+        }
+      ]
+    },
+    "title": "Economic Analysis of Law",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Applies economics to market failure, property rights, accident law, contract law, and law enforcement."
+  },
+  {
+    "code": "ECON370",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON101"
+        }
+      ]
+    },
+    "title": "Benefit-Cost Analysis and the Economics of Project Evaluation",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Techniques and problems in benefit-cost analysis of public projects, with alternative approaches and case studies."
+  },
+  {
+    "code": "ECON398",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON101"
+        }
+      ]
+    },
+    "title": "Introduction to Causal Methods",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Emphasizes causality, causal modeling, empirical analysis, and theoretical models for policy evaluation."
+  },
+  {
+    "code": "ECON420",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH200"
+        },
+        {
+          "code": "ECON301"
+        }
+      ]
+    },
+    "title": "Optimization and Economic Theory",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Introduces static and dynamic optimization methods with economic applications."
+  },
+  {
+    "code": "ECON421",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON301"
+        }
+      ]
+    },
+    "title": "Introduction to Game Theory and Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Explores rational behaviour in strategic situations, with applications across economics, business, politics, law, and biology."
+  },
+  {
+    "code": "ECON425",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "STAT306"
+        }
+      ]
+    },
+    "title": "Advanced Econometrics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Advanced econometric models including nonlinear models, instrumental variables, discrete-choice models, panel regression, and machine learning methods."
+  },
+  {
+    "code": "ECON426",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON425"
+        }
+      ]
+    },
+    "title": "Econometric Analysis",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Nonlinear estimation, distributed lag models, time-series analysis, and Bayesian statistics."
+  },
+  {
+    "code": "ECON447",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON301"
+        },
+        {
+          "code": "ECON302"
+        }
+      ]
+    },
+    "title": "Monetary Theory",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Analyzes money's economic roles, demand models, inflation, seignorage, and macroeconomic stabilization policy."
+  },
+  {
+    "code": "ECON456",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON302"
+        }
+      ]
+    },
+    "title": "International Macroeconomics and Finance",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Balance of payments, foreign exchange markets, internal versus external stability, and contemporary issues."
+  },
+  {
+    "code": "ECON473",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON301"
+        },
+        {
+          "code": "STAT306"
+        }
+      ]
+    },
+    "title": "Economics of Climate Change",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Investigates climate impact through economic analysis, the social cost of carbon, mitigation and adaptation policies, and climate justice."
+  },
+  {
+    "code": "ECON101",
+    "title": "Principles of Microeconomics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Introduction to consumer behaviour, producer theory, competitive market equilibrium, welfare economics, monopoly, oligopoly, and strategic interactions."
+  },
+  {
+    "code": "ECON102",
+    "title": "Principles of Macroeconomics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Theory and Canadian policy regarding growth, business cycles, employment, national income accounting, interest rates, exchange rates, money, banking, and trade."
+  },
+  {
+    "code": "MATH100",
+    "title": "Differential Calculus with Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Derivatives of elementary functions. Applications and modelling: graphing, optimization."
+  },
+  {
+    "code": "MATH101",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Integral Calculus with Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "The definite integral, integration techniques, applications, modelling, infinite series."
+  },
+  {
+    "code": "MATH200",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH101"
+        }
+      ]
+    },
+    "title": "Calculus III",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Analytic geometry in 2 and 3 dimensions, partial and directional derivatives, chain rule, maxima and minima, second derivative test, Lagrange multipliers, multiple integrals with applications."
+  },
+  {
+    "code": "MATH221",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Matrix Algebra",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Systems of linear equations, operations on matrices, determinants, eigenvalues and eigenvectors, diagonalization of symmetric matrices."
+  },
+  {
+    "code": "STAT200",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Elementary Statistics for Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      1,
+      0
+    ],
+    "description": "Classical, nonparametric, and robust inferences about means, variances, and analysis of variance, using computers. Emphasis on problem formulation, assumptions, and interpretation."
+  },
+  {
+    "code": "STAT302",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH200"
+        }
+      ]
+    },
+    "title": "Introduction to Probability",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Basic notions of probability, random variables, expectation and conditional expectation, limit theorems."
+  },
+  {
+    "code": "STAT306",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH221"
+        },
+        {
+          "code": "STAT200"
+        },
+        {
+          "code": "STAT302"
+        }
+      ]
+    },
+    "title": "Finding Relationships in Data",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      1
+    ],
+    "description": "Modelling a response (output) variable as a function of several explanatory (input) variables: multiple regression for a continuous response, logistic regression for a binary response, and log-linear models for count data. Finding low-dimensional structure: principal components analysis. Cluster analysis."
+  }
 ]

@@ -1,22 +1,327 @@
 [
-  { "code": "EOSC325", "allowed": true, "prereqs": { "all": [{"code": "MATH101"}] } },
-  { "code": "EOSC340", "allowed": true, "prereqs": { "all": [{"code": "CHEM121"}, {"code": "MATH101"}, {"code": "PHYS101"}] } },
-  { "code": "EOSC345", "allowed": true },
-  { "code": "EOSC410", "allowed": true, "prereqs": { "all": [{"code": "STAT200"}, {"code": "MATH221"}, {"code": "CPSC210"}] } },
-  { "code": "EOSC440", "allowed": true, "prereqs": { "all": [{"code": "CPSC210"}, {"code": "MATH200"}, {"code": "EOSC112"}] } },
-  { "code": "EOSC442", "allowed": true, "prereqs": { "all": [{"code": "EOSC340"}, {"code": "CPSC110"}, {"code": "STAT200"}] } },
-  { "code": "BIOL301", "allowed": true, "coreqs": { "all": [{"code": "STAT200"}] } },
-  { "code": "ENVR440", "allowed": true, "prereqs": { "all": [{"code": "ENVR200"}] } },
-
-  { "code": "PHYS101" },
-  { "code": "EOSC112" },
-  { "code": "CHEM121" },
-  { "code": "ENVR200" },
-  { "code": "CPSC110" },
-  { "code": "CPSC210", "prereqs": { "all": [{"code": "CPSC110"}] } },
-  { "code": "MATH100" },
-  { "code": "MATH101", "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "MATH200", "prereqs": { "all": [{"code": "MATH101"}] } },
-  { "code": "MATH221", "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "STAT200", "prereqs": { "all": [{"code": "MATH100"}] } }
+  {
+    "code": "EOSC325",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH101"
+        }
+      ]
+    },
+    "title": "Principles of Physical Hydrogeology",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      1
+    ],
+    "description": "Theories of storage and movement of water within groundwater systems; groundwater-surface water interaction; role of groundwater systems in watershed management and regulating the environmental impacts of global change."
+  },
+  {
+    "code": "EOSC340",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CHEM121"
+        },
+        {
+          "code": "MATH101"
+        },
+        {
+          "code": "PHYS101"
+        }
+      ]
+    },
+    "title": "Climate Change: Causes and Solutions",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Mechanisms and processes of past and future global climate change. Climate models and projected impacts. Climate solutions including carbon sequestration, adaptation and geoengineering."
+  },
+  {
+    "code": "EOSC345",
+    "allowed": true,
+    "title": "Climate Change: Evidence and Impacts",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Climate science fundamentals: energy balance, ocean and atmospheric circulation. Future climate scenarios. Processes driving spatial and temporal climate variability."
+  },
+  {
+    "code": "EOSC410",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "STAT200"
+        },
+        {
+          "code": "MATH221"
+        },
+        {
+          "code": "CPSC210"
+        }
+      ]
+    },
+    "title": "Geoscientific Data Analysis and Empirical Modelling",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Application of data analysis and empirical modelling strategies for conducting data-oriented research in geosciences; from setting research questions and hypotheses to delivering and interpreting results."
+  },
+  {
+    "code": "EOSC440",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC210"
+        },
+        {
+          "code": "MATH200"
+        },
+        {
+          "code": "EOSC112"
+        }
+      ]
+    },
+    "title": "Physical Climate Modelling",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Understanding climate models from 1D energy balance to fully coupled atmosphere-ocean general circulation models. Physics and thermodynamics of radiative balance and clouds."
+  },
+  {
+    "code": "EOSC442",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "EOSC340"
+        },
+        {
+          "code": "CPSC110"
+        },
+        {
+          "code": "STAT200"
+        }
+      ]
+    },
+    "title": "Climate Measurement and Analysis",
+    "credits": 1,
+    "hours": [
+      0,
+      3,
+      0
+    ],
+    "description": "Local climate time series collection and analysis. Retrieval and analysis of online climate data and model output."
+  },
+  {
+    "code": "BIOL301",
+    "allowed": true,
+    "coreqs": {
+      "all": [
+        {
+          "code": "STAT200"
+        }
+      ]
+    },
+    "title": "Biomathematics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      2
+    ],
+    "description": "Uses of mathematics in the biological sciences; experimental design and modelling of biological processes."
+  },
+  {
+    "code": "ENVR440",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ENVR200"
+        }
+      ]
+    },
+    "title": "Analytical Methods in Sustainability Science",
+    "credits": 3,
+    "hours": [
+      2,
+      2,
+      0
+    ],
+    "description": "Examines sustainability through case studies employing cost-benefit analysis, trade-offs analysis, and life-cycle analysis; active learning in a computer lab using real-world data."
+  },
+  {
+    "code": "PHYS101",
+    "title": "Energy and Waves",
+    "credits": 3,
+    "hours": [
+      3,
+      3,
+      1
+    ],
+    "description": "Fluids, harmonic oscillator, travelling waves, standing waves, sound, and interference of light waves, including diffraction."
+  },
+  {
+    "code": "EOSC112",
+    "title": "The Climate System",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Introduction to Earth's climate system: radiation balance, greenhouse effect, atmosphere and ocean circulation, plate tectonics, biosphere interactions, and the carbon cycle."
+  },
+  {
+    "code": "CHEM121",
+    "title": "Structure and Bonding in Chemistry",
+    "credits": 4,
+    "hours": [
+      3,
+      3,
+      0
+    ],
+    "description": "Fundamentals of bonding theories and structural chemistry, with applications relevant to modern society."
+  },
+  {
+    "code": "ENVR200",
+    "title": "Introduction to Environmental Science",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Seminars and field trips introducing the major global, regional, and local environmental issues facing human societies."
+  },
+  {
+    "code": "CPSC110",
+    "title": "Computation, Programs, and Programming",
+    "credits": 4,
+    "hours": [
+      3,
+      3,
+      0
+    ],
+    "description": "Fundamental program and computation structures. Introductory programming skills. Computation as a tool for information processing, simulation and modelling, and interacting with the world."
+  },
+  {
+    "code": "CPSC210",
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC110"
+        }
+      ]
+    },
+    "title": "Software Construction",
+    "credits": 4,
+    "hours": [
+      3,
+      2,
+      0
+    ],
+    "description": "Design, development, and analysis of robust software components. Topics such as software design, computational models, data structures, debugging, and testing."
+  },
+  {
+    "code": "MATH100",
+    "title": "Differential Calculus with Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Derivatives of elementary functions. Applications and modelling: graphing, optimization."
+  },
+  {
+    "code": "MATH101",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Integral Calculus with Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "The definite integral, integration techniques, applications, modelling, infinite series."
+  },
+  {
+    "code": "MATH200",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH101"
+        }
+      ]
+    },
+    "title": "Calculus III",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Analytic geometry in 2 and 3 dimensions, partial and directional derivatives, chain rule, maxima and minima, second derivative test, Lagrange multipliers, multiple integrals with applications."
+  },
+  {
+    "code": "MATH221",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Matrix Algebra",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Systems of linear equations, operations on matrices, determinants, eigenvalues and eigenvectors, diagonalization of symmetric matrices."
+  },
+  {
+    "code": "STAT200",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Elementary Statistics for Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      1,
+      0
+    ],
+    "description": "Classical, nonparametric, and robust inferences about means, variances, and analysis of variance, using computers. Emphasis on problem formulation, assumptions, and interpretation."
+  }
 ]

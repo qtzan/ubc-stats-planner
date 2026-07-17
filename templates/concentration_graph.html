@@ -10,12 +10,11 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 
 	<!-- Local JS -->
-	<script>window.IS_LOGGED_IN = {{ 'true' if current_user else 'false' }};</script>
 	<script src="/static/auth.js" defer></script>
 	<script src="/static/concentration.js" defer></script>
 </head>
 
-<body class="p-4 bg-gray-50 w-full min-h-screen md:max-h-screen flex flex-col gap-y-4">
+<body class="p-4 bg-gray-50 w-full min-h-screen md:max-h-screen flex flex-col gap-y-4" data-logged-in="{{ 'true' if current_user else 'false' }}">
 
 	<!-- Header -->
 	<div class="flex items-center justify-between gap-2 flex-wrap">
@@ -82,7 +81,18 @@
 			<!-- List of Course Details -->
 			{% for course in courseData %}
 			<div class="course-details mt-4 hidden" id="{{ course.code }}">
-				<h2 class="text-lg font-bold text-gray-900">{{ course.subject }} {{ course.number }}</h2>
+				<h2 class="text-lg font-bold text-gray-900">{{ course.subject }} {{ course.number }}{% if course.title %}: {{ course.title }}{% endif %}</h2>
+				{% if course.description %}
+				<p>{{ course.description }}</p>
+				{% endif %}
+				<ul class="list-disc pl-6 my-2">
+					{% if course.credits %}
+					<li><strong>Credits:</strong> {{ course.credits }}</li>
+					{% endif %}
+					{% if course.hours %}
+					<li><strong>Hours:</strong> {{ course.hours }}</li>
+					{% endif %}
+				</ul>
 				{% if course.prereq_codes %}
 				<p class="mt-2"><strong>Prerequisites:</strong> {{ course.prereq_codes | join(', ') }}</p>
 				{% endif %}
@@ -91,6 +101,16 @@
 				{% endif %}
 				{% if not course.prereq_codes and not course.coreq_codes %}
 				<p class="mt-2">No prerequisites or corequisites.</p>
+				{% endif %}
+				{% if course.grades_url %}
+				<a
+					class="text-blue-700 underline"
+					href="{{ course.grades_url }}"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					View Historical Averages for {{ course.subject }} {{ course.number }}
+				</a>
 				{% endif %}
 			</div>
 			{% endfor %}

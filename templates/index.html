@@ -11,12 +11,11 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 	<!-- Local JS -->
-	<script>window.IS_LOGGED_IN = {{ 'true' if current_user else 'false' }};</script>
 	<script src="/static/auth.js" defer></script>
 	<script src="/static/main.js" defer></script>
 </head>
 
-<body class="p-4 bg-gray-50 w-full min-h-screen md:max-h-screen flex flex-col gap-y-4">
+<body class="p-4 bg-gray-50 w-full min-h-screen md:max-h-screen flex flex-col gap-y-4" data-logged-in="{{ 'true' if current_user else 'false' }}">
 
 	<!-- Title and Subtitle -->
 	<div class="relative flex items-center justify-between gap-2 flex-wrap">
@@ -77,7 +76,7 @@
 			<!-- List of Course Descriptions -->
 			{% for course in courseData %}
 			<div class="course-details mt-4 hidden" id="{{ course.code }}">
-				<h2 class="text-lg font-bold text-gray-900">{{ course.code }}: {{ course.title }}</h3>
+				<h2 class="text-lg font-bold text-gray-900">{{ course.code }}: {{ course.title }}</h2>
 				<p>{{ course.description }}</p>
 				<ul class="list-disc pl-6 my-2">
 					<li><strong>Credits:</strong> {{ course.credits }}</li>

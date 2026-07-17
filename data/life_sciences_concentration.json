@@ -1,30 +1,502 @@
 [
-  { "code": "SPPH302", "allowed": true },
-  { "code": "BIOC306", "allowed": true, "prereqs": { "all": [{"code": "BIOC203"}] }, "coreqs": { "all": [{"code": "BIOC303"}] } },
-  { "code": "BIOC410", "allowed": true, "prereqs": { "all": [{"code": "BIOC303"}, {"code": "BIOL335"}] } },
-  { "code": "BIOL301", "allowed": true, "coreqs": { "all": [{"code": "STAT200"}] } },
-  { "code": "BIOL320", "allowed": true, "prereqs": { "all": [{"code": "BIOL121"}] } },
-  { "code": "BIOL326", "allowed": true, "prereqs": { "all": [{"code": "BIOL205"}] }, "coreqs": { "all": [{"code": "STAT200"}] } },
-  { "code": "BIOL335", "allowed": true, "prereqs": { "all": [{"code": "BIOL233"}] } },
-  { "code": "BIOL336", "allowed": true, "prereqs": { "all": [{"code": "BIOL233"}] } },
-  { "code": "BIOL404", "allowed": true, "prereqs": { "all": [{"code": "BIOL230"}, {"code": "STAT200"}] } },
-  { "code": "BIOL434", "allowed": true, "prereqs": { "all": [{"code": "BIOL336"}, {"code": "BIOL200"}, {"code": "BIOL233"}] } },
-  { "code": "BIOL413", "allowed": true, "prereqs": { "all": [{"code": "BIOL121"}] } },
-
-  { "code": "BIOC203", "prereqs": { "all": [{"code": "BIOL200"}, {"code": "CHEM203"}] }, "coreqs": { "all": [{"code": "CHEM213"}] } },
-  { "code": "BIOL200", "prereqs": { "all": [{"code": "BIOL112"}] }, "coreqs": { "all": [{"code": "CHEM203"}] } },
-  { "code": "CHEM203", "prereqs": { "all": [{"code": "CHEM113"}] } },
-  { "code": "CHEM113" },
-  { "code": "CHEM213", "prereqs": { "all": [{"code": "CHEM203"}, {"code": "CHEM223"}] } },
-  { "code": "CHEM223", "prereqs": { "all": [{"code": "CHEM123"}] } },
-  { "code": "CHEM123", "prereqs": { "all": [{"code": "CHEM121"}] } },
-  { "code": "CHEM121" },
-  { "code": "BIOC303", "prereqs": { "all": [{"code": "BIOC203"}, {"code": "CHEM213"}] } },
-  { "code": "BIOL205", "prereqs": { "all": [{"code": "BIOL121"}] } },
-  { "code": "BIOL121" },
-  { "code": "BIOL233", "prereqs": { "all": [{"code": "BIOL112"}, {"code": "BIOL121"}] } },
-  { "code": "BIOL112" },
-  { "code": "BIOL230" },
-  { "code": "STAT200", "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "MATH100" }
+  {
+    "code": "SPPH302",
+    "allowed": true,
+    "title": "Topics in Health Informatics for Health/Life Sciences Students",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Basic literacy in health informatics. Innovative approaches to healthcare implementation, access to care, and data utilization."
+  },
+  {
+    "code": "BIOC306",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOC203"
+        }
+      ]
+    },
+    "coreqs": {
+      "all": [
+        {
+          "code": "BIOC303"
+        }
+      ]
+    },
+    "title": "Quantitative Methods in Biochemistry",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Quantitative and computational methods of biological information transfer. Methods, data analysis approaches, and theories involved in bioinformatics, computational biology, and high-throughput data."
+  },
+  {
+    "code": "BIOC410",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOC303"
+        },
+        {
+          "code": "BIOL335"
+        }
+      ]
+    },
+    "title": "Nucleic Acids-Structure and Function",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Chemical, physical and biological properties of nucleic acids and their role in replication, transcription, translation and regulation of expression of genetic material."
+  },
+  {
+    "code": "BIOL301",
+    "allowed": true,
+    "coreqs": {
+      "all": [
+        {
+          "code": "STAT200"
+        }
+      ]
+    },
+    "title": "Biomathematics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      2
+    ],
+    "description": "Uses of mathematics in the biological sciences; experimental design and modelling of biological processes."
+  },
+  {
+    "code": "BIOL320",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOL121"
+        }
+      ]
+    },
+    "title": "Survey of Algae",
+    "credits": 4,
+    "hours": [
+      3,
+      3,
+      0
+    ],
+    "description": "Algae, considering their morphology, life history, classification, and ecology."
+  },
+  {
+    "code": "BIOL326",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOL205"
+        }
+      ]
+    },
+    "coreqs": {
+      "all": [
+        {
+          "code": "STAT200"
+        }
+      ]
+    },
+    "title": "Experimental Biology of Invertebrates",
+    "credits": 3,
+    "hours": [
+      1,
+      4,
+      0
+    ],
+    "description": "Behaviour and ecology of invertebrates as revealed by hands-on experiments."
+  },
+  {
+    "code": "BIOL335",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOL233"
+        }
+      ]
+    },
+    "title": "Molecular Genetics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      2
+    ],
+    "description": "Isolation and identification of genes, analysis of gene structure; gene expression and regulation."
+  },
+  {
+    "code": "BIOL336",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOL233"
+        }
+      ]
+    },
+    "title": "Fundamentals of Evolutionary Biology",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      2
+    ],
+    "description": "Natural selection; population genetics, quantitative genetics and systematics; classical and molecular approaches."
+  },
+  {
+    "code": "BIOL404",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOL230"
+        },
+        {
+          "code": "STAT200"
+        }
+      ]
+    },
+    "title": "Ecological Methodology",
+    "credits": 3,
+    "hours": [
+      2,
+      4,
+      0
+    ],
+    "description": "Design, execution, and analysis of ecological surveys and experiments, with field and computer techniques."
+  },
+  {
+    "code": "BIOL434",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOL336"
+        },
+        {
+          "code": "BIOL200"
+        },
+        {
+          "code": "BIOL233"
+        }
+      ]
+    },
+    "title": "Population Genetics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      2
+    ],
+    "description": "Theoretical and experimental aspects of population and quantitative genetics."
+  },
+  {
+    "code": "BIOL413",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOL121"
+        }
+      ]
+    },
+    "title": "Zoogeography",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Role of physical, ecological, and evolutionary processes in determining the geographic distribution of animals."
+  },
+  {
+    "code": "BIOC203",
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOL200"
+        },
+        {
+          "code": "CHEM203"
+        }
+      ]
+    },
+    "coreqs": {
+      "all": [
+        {
+          "code": "CHEM213"
+        }
+      ]
+    },
+    "title": "Fundamentals of Biochemistry",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      1
+    ],
+    "description": "Amino acids and proteins. Enzymes and enzymology. Human metabolic pathways. Structure, function and metabolism of carbohydrates including glycogen storage and gluconeogenesis."
+  },
+  {
+    "code": "BIOL200",
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOL112"
+        }
+      ]
+    },
+    "coreqs": {
+      "all": [
+        {
+          "code": "CHEM203"
+        }
+      ]
+    },
+    "title": "Fundamentals of Cell Biology",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      1
+    ],
+    "description": "Structure and function of plant and animal cells; membrane models, cytoplasmic organelles, biological information from gene to protein."
+  },
+  {
+    "code": "CHEM203",
+    "prereqs": {
+      "all": [
+        {
+          "code": "CHEM113"
+        }
+      ]
+    },
+    "title": "Introduction to Organic Chemistry",
+    "credits": 4,
+    "hours": [
+      3,
+      3,
+      0
+    ],
+    "description": "Structure, bonding and physical properties of aliphatic and aromatic compounds; mechanistic analysis of chemical reactivity."
+  },
+  {
+    "code": "CHEM113",
+    "title": "Thermodynamics, Kinetics and Organic Chemistry",
+    "credits": 4,
+    "hours": [
+      3,
+      3,
+      0
+    ],
+    "description": "Fundamentals of chemical reactivity: thermodynamics; kinetics; organic chemistry, including stereochemistry. (Credit is granted for only one of CHEM 113 or CHEM 123.)"
+  },
+  {
+    "code": "CHEM213",
+    "prereqs": {
+      "all": [
+        {
+          "code": "CHEM203"
+        },
+        {
+          "code": "CHEM223"
+        }
+      ]
+    },
+    "title": "Organic Chemistry",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Spectroscopy of organic compounds. Mechanistic analysis of chemical reactivity of common functional groups."
+  },
+  {
+    "code": "CHEM223",
+    "prereqs": {
+      "all": [
+        {
+          "code": "CHEM123"
+        }
+      ]
+    },
+    "title": "Introduction to Organic Chemistry",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Structure, bonding and physical properties of aliphatic and aromatic compounds; mechanistic analysis of chemical reactivity."
+  },
+  {
+    "code": "CHEM123",
+    "prereqs": {
+      "all": [
+        {
+          "code": "CHEM121"
+        }
+      ]
+    },
+    "title": "Thermodynamics, Kinetics and Organic Chemistry",
+    "credits": 4,
+    "hours": [
+      3,
+      3,
+      0
+    ],
+    "description": "Fundamentals of chemical reactivity: thermodynamics; kinetics; organic chemistry, including stereochemistry."
+  },
+  {
+    "code": "CHEM121",
+    "title": "Structure and Bonding in Chemistry",
+    "credits": 4,
+    "hours": [
+      3,
+      3,
+      0
+    ],
+    "description": "Fundamentals of bonding theories and structural chemistry, with applications relevant to modern society."
+  },
+  {
+    "code": "BIOC303",
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOC203"
+        },
+        {
+          "code": "CHEM213"
+        }
+      ]
+    },
+    "title": "Molecular Biochemistry",
+    "credits": 6,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Structure, function and metabolism of lipids, steroids, amino acids and nucleotides; the biochemistry and molecular biology of replication, transcription, translation and gene regulation."
+  },
+  {
+    "code": "BIOL205",
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOL121"
+        }
+      ]
+    },
+    "title": "Comparative Invertebrate Zoology",
+    "credits": 4,
+    "hours": [
+      3,
+      3,
+      0
+    ],
+    "description": "An introduction to the unity, diversity and evolutionary history of invertebrates."
+  },
+  {
+    "code": "BIOL121",
+    "title": "Genetics, Evolution and Ecology",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Principles of storage and transmission of genetic variation; origin and evolution of species and their ecological interactions."
+  },
+  {
+    "code": "BIOL233",
+    "prereqs": {
+      "all": [
+        {
+          "code": "BIOL112"
+        },
+        {
+          "code": "BIOL121"
+        }
+      ]
+    },
+    "title": "Genetics for Life",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      2
+    ],
+    "description": "How genetic differences determine individual characteristics, and how they are inherited, analyzed, and modified."
+  },
+  {
+    "code": "BIOL112",
+    "title": "Biology of the Cell",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "The principles of cellular and molecular biology using bacterial and eukaryotic examples."
+  },
+  {
+    "code": "BIOL230",
+    "title": "Fundamentals of Ecology",
+    "credits": 3,
+    "hours": [
+      3,
+      3,
+      0
+    ],
+    "description": "Dynamics of plant and animal populations, structure of ecological communities and functioning of ecosystems."
+  },
+  {
+    "code": "STAT200",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Elementary Statistics for Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      1,
+      0
+    ],
+    "description": "Classical, nonparametric, and robust inferences about means, variances, and analysis of variance, using computers. Emphasis on problem formulation, assumptions, and interpretation."
+  },
+  {
+    "code": "MATH100",
+    "title": "Differential Calculus with Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Derivatives of elementary functions. Applications and modelling: graphing, optimization."
+  }
 ]

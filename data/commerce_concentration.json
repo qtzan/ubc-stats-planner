@@ -1,20 +1,297 @@
 [
-  { "code": "COMM324", "allowed": true, "prereqs": { "all": [{"code": "STAT200"}, {"code": "COMM203"}, {"code": "COMM205"}] } },
-  { "code": "COMM414", "allowed": true, "prereqs": { "all": [{"code": "COMM204"}] } },
-  { "code": "COMM457", "allowed": true },
-  { "code": "COMM458", "allowed": true, "prereqs": { "all": [{"code": "COMM457"}] } },
-  { "code": "COMM465", "allowed": true, "coreqs": { "all": [{"code": "ECON101"}, {"code": "ECON102"}] } },
-  { "code": "COMM473", "allowed": true, "prereqs": { "all": [{"code": "ECON101"}, {"code": "ECON102"}, {"code": "MATH100"}] }, "coreqs": { "all": [{"code": "COMM293"}] } },
-  { "code": "COMM486I", "allowed": true },
-
-  { "code": "COMM203" },
-  { "code": "COMM205", "prereqs": { "all": [{"code": "COMM192"}, {"code": "ECON101"}, {"code": "ECON102"}] } },
-  { "code": "COMM192" },
-  { "code": "COMM204", "prereqs": { "all": [{"code": "COMM190"}, {"code": "STAT200"}] } },
-  { "code": "COMM190", "coreqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "COMM293", "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "STAT200", "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "MATH100" },
-  { "code": "ECON101" },
-  { "code": "ECON102" }
+  {
+    "code": "COMM324",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "STAT200"
+        },
+        {
+          "code": "COMM203"
+        },
+        {
+          "code": "COMM205"
+        }
+      ]
+    },
+    "title": "People Analytics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Descriptive and inferential statistics applied to decisions in core Human Resources areas, including recruitment and compensation."
+  },
+  {
+    "code": "COMM414",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "COMM204"
+        }
+      ]
+    },
+    "title": "Data Visualization and Business Analytics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Descriptive, predictive, and prescriptive analytics, including forecasting and various statistical techniques."
+  },
+  {
+    "code": "COMM457",
+    "allowed": true,
+    "title": "Fundamentals of Financial Accounting",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Accounting principles, measurements, and business financing forms."
+  },
+  {
+    "code": "COMM458",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "COMM457"
+        }
+      ]
+    },
+    "title": "Fundamentals of Managerial Accounting",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Use of accounting data in business decision-making and cost accounting methods."
+  },
+  {
+    "code": "COMM465",
+    "allowed": true,
+    "coreqs": {
+      "all": [
+        {
+          "code": "ECON101"
+        },
+        {
+          "code": "ECON102"
+        }
+      ]
+    },
+    "title": "Marketing Management",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Basic considerations affecting the domestic and international marketing of goods and services."
+  },
+  {
+    "code": "COMM473",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "ECON101"
+        },
+        {
+          "code": "ECON102"
+        },
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "coreqs": {
+      "all": [
+        {
+          "code": "COMM293"
+        }
+      ]
+    },
+    "title": "Business Finance",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Introduction to managerial finance, including financial markets, capital budgeting, and financial planning."
+  },
+  {
+    "code": "COMM486I",
+    "allowed": true,
+    "title": "Special Topics in Business",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "A specific topics section exploring a focused area of business studies."
+  },
+  {
+    "code": "COMM203",
+    "title": "Managing the Employment Relationship",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "The role of employment relations in enterprise performance; managing the workforce under law and human resource practices."
+  },
+  {
+    "code": "COMM205",
+    "prereqs": {
+      "all": [
+        {
+          "code": "COMM192"
+        },
+        {
+          "code": "ECON101"
+        },
+        {
+          "code": "ECON102"
+        }
+      ]
+    },
+    "title": "Introduction to Management Information Systems",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Overview of computer technology and terminology; use of computers as managerial and administrative tools."
+  },
+  {
+    "code": "COMM192",
+    "title": "Management and Organizational Behaviour",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Behaviour in organizations as it affects people as individuals, their relationships with others, and their performance in groups."
+  },
+  {
+    "code": "COMM204",
+    "prereqs": {
+      "all": [
+        {
+          "code": "COMM190"
+        },
+        {
+          "code": "STAT200"
+        }
+      ]
+    },
+    "title": "Logistics and Operations Management",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "The design and management of systems to make products, provide services and deliver them to the end user."
+  },
+  {
+    "code": "COMM190",
+    "coreqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Introduction to Quantitative Decision Making",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Decision models in business, including basic optimization, linear programming, probability, decision analysis, and spreadsheet applications."
+  },
+  {
+    "code": "COMM293",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Financial Accounting",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "The construction and interpretation of financial reports prepared primarily for external use."
+  },
+  {
+    "code": "STAT200",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Elementary Statistics for Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      1,
+      0
+    ],
+    "description": "Classical, nonparametric, and robust inferences about means, variances, and analysis of variance, using computers. Emphasis on problem formulation, assumptions, and interpretation."
+  },
+  {
+    "code": "MATH100",
+    "title": "Differential Calculus with Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Derivatives of elementary functions. Applications and modelling: graphing, optimization."
+  },
+  {
+    "code": "ECON101",
+    "title": "Principles of Microeconomics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Introduction to consumer behaviour, producer theory, competitive market equilibrium, welfare economics, monopoly, oligopoly, and strategic interactions."
+  },
+  {
+    "code": "ECON102",
+    "title": "Principles of Macroeconomics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Theory and Canadian policy regarding growth, business cycles, employment, national income accounting, interest rates, exchange rates, money, banking, and trade."
+  }
 ]

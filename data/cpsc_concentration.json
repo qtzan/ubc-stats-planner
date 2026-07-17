@@ -1,41 +1,732 @@
 [
-  { "code": "CPSC302", "allowed": true, "prereqs": { "all": [{"code": "CPSC110"}, {"code": "MATH101"}, {"code": "MATH221"}] } },
-  { "code": "CPSC303", "allowed": true, "prereqs": { "all": [{"code": "CPSC110"}, {"code": "MATH101"}, {"code": "MATH221"}] } },
-  { "code": "CPSC304", "allowed": true, "prereqs": { "all": [{"code": "CPSC221"}] } },
-  { "code": "CPSC310", "allowed": true, "prereqs": { "all": [{"code": "CPSC213"}, {"code": "CPSC221"}] } },
-  { "code": "CPSC312", "allowed": true, "prereqs": { "all": [{"code": "CPSC210"}] } },
-  { "code": "CPSC320", "allowed": true, "prereqs": { "all": [{"code": "CPSC221"}, {"code": "MATH200"}] } },
-  { "code": "CPSC322", "allowed": true, "prereqs": { "all": [{"code": "CPSC221"}] } },
-  { "code": "CPSC330", "allowed": true, "prereqs": { "all": [{"code": "CPSC210"}] } },
-  { "code": "CPSC340", "allowed": true, "prereqs": { "all": [{"code": "CPSC221"}, {"code": "MATH221"}, {"code": "MATH200"}, {"code": "STAT302"}] } },
-  { "code": "CPSC344", "allowed": true, "prereqs": { "all": [{"code": "CPSC210"}] } },
-  { "code": "CPSC368", "allowed": true, "prereqs": { "all": [{"code": "CPSC210"}] } },
-  { "code": "CPSC402", "allowed": true, "prereqs": { "all": [{"code": "MATH307"}] } },
-  { "code": "CPSC404", "allowed": true, "prereqs": { "all": [{"code": "CPSC304"}, {"code": "CPSC213"}] } },
-  { "code": "CPSC406", "allowed": true, "prereqs": { "all": [{"code": "MATH307"}] } },
-  { "code": "CPSC420", "allowed": true, "prereqs": { "all": [{"code": "CPSC320"}] } },
-  { "code": "CPSC422", "allowed": true, "prereqs": { "all": [{"code": "CPSC322"}] } },
-  { "code": "CPSC425", "allowed": true, "prereqs": { "all": [{"code": "CPSC221"}, {"code": "MATH200"}] } },
-  { "code": "CPSC440", "allowed": true, "prereqs": { "all": [{"code": "CPSC340"}] } },
-  { "code": "CPSC444", "allowed": true, "prereqs": { "all": [{"code": "CPSC344"}, {"code": "STAT200"}] } },
-  { "code": "CPSC445", "allowed": true, "prereqs": { "all": [{"code": "CPSC320"}, {"code": "BIOL112"}, {"code": "BIOL121"}] } },
-  { "code": "AI322", "allowed": true, "prereqs": { "all": [{"code": "CPSC340"}] } },
-  { "code": "AI360", "allowed": true, "prereqs": { "all": [{"code": "CPSC340"}] } },
-  { "code": "AI422", "allowed": true, "prereqs": { "all": [{"code": "CPSC322"}] } },
-
-  { "code": "CPSC110" },
-  { "code": "CPSC121", "coreqs": { "all": [{"code": "CPSC110"}] } },
-  { "code": "CPSC210", "prereqs": { "all": [{"code": "CPSC110"}] } },
-  { "code": "CPSC213", "prereqs": { "all": [{"code": "CPSC210"}, {"code": "CPSC121"}] } },
-  { "code": "CPSC221", "prereqs": { "all": [{"code": "CPSC210"}, {"code": "MATH220"}] } },
-  { "code": "MATH100" },
-  { "code": "MATH101", "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "MATH200", "prereqs": { "all": [{"code": "MATH101"}] } },
-  { "code": "MATH220", "prereqs": { "all": [{"code": "MATH200"}] } },
-  { "code": "MATH221", "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "MATH307", "prereqs": { "all": [{"code": "MATH221"}, {"code": "MATH200"}] } },
-  { "code": "STAT200", "prereqs": { "all": [{"code": "MATH100"}] } },
-  { "code": "STAT302", "prereqs": { "all": [{"code": "MATH200"}] } },
-  { "code": "BIOL112" },
-  { "code": "BIOL121" }
+  {
+    "code": "CPSC302",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC110"
+        },
+        {
+          "code": "MATH101"
+        },
+        {
+          "code": "MATH221"
+        }
+      ]
+    },
+    "title": "Numerical Computation for Algebraic Problems",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Numerical techniques for basic mathematical processes involving no discretization, and their analysis. Solution of linear systems, including analysis of round-off errors; norms and condition number; introduction to iterative techniques in linear algebra, including eigenvalue problems; solution to nonlinear equations."
+  },
+  {
+    "code": "CPSC303",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC110"
+        },
+        {
+          "code": "MATH101"
+        },
+        {
+          "code": "MATH221"
+        }
+      ]
+    },
+    "title": "Numerical Approximation and Discretization",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Numerical techniques for basic mathematical processes involving discretization, and their analysis. Interpolation and approximation, including splines and least squares data fitting; numerical differentiation and integration; introduction to numerical initial value ordinary differential equations."
+  },
+  {
+    "code": "CPSC304",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC221"
+        }
+      ]
+    },
+    "title": "Introduction to Relational Databases",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      1
+    ],
+    "description": "Overview of database systems, ER models, logical database design and normalization, formal relational query languages, SQL and other commercial languages, data warehouses, special topics."
+  },
+  {
+    "code": "CPSC310",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC213"
+        },
+        {
+          "code": "CPSC221"
+        }
+      ]
+    },
+    "title": "Introduction to Software Engineering",
+    "credits": 4,
+    "hours": [
+      3,
+      2,
+      0
+    ],
+    "description": "Specification, design, validation, evolution and construction of modern software systems, within the context of socially and professionally relevant domains such as ethics, intellectual property, and information security."
+  },
+  {
+    "code": "CPSC312",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC210"
+        }
+      ]
+    },
+    "title": "Functional and Logic Programming",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Principles of symbolic computing, using languages based upon first-order logic and the lambda calculus. Algorithms for implementing such languages. Applications to artificial intelligence and knowledge representation."
+  },
+  {
+    "code": "CPSC320",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC221"
+        },
+        {
+          "code": "MATH200"
+        }
+      ]
+    },
+    "title": "Intermediate Algorithm Design and Analysis",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      1
+    ],
+    "description": "Systematic study of basic concepts and techniques in the design and analysis of algorithms, illustrated from various problem areas. Topics include models of computation; choice of data structures; and graph-theoretic, algebraic, and text processing algorithms."
+  },
+  {
+    "code": "CPSC322",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC221"
+        }
+      ]
+    },
+    "title": "Introduction to Artificial Intelligence",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Problem-solving and planning. State/action models and graph searching. Natural language understanding. Computational vision. Applications of artificial intelligence."
+  },
+  {
+    "code": "CPSC330",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC210"
+        }
+      ]
+    },
+    "title": "Applied Machine Learning",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      1
+    ],
+    "description": "Application of machine learning tools, with an emphasis on solving practical problems. Data cleaning, feature extraction, supervised and unsupervised machine learning, reproducible workflows, and communicating results."
+  },
+  {
+    "code": "CPSC340",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC221"
+        },
+        {
+          "code": "MATH221"
+        },
+        {
+          "code": "MATH200"
+        },
+        {
+          "code": "STAT302"
+        }
+      ]
+    },
+    "title": "Machine Learning and Data Mining",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      1
+    ],
+    "description": "Models of algorithms for dimensionality reduction, nonlinear regression, classification, clustering and unsupervised learning; applications to computer graphics, computer games, bio-informatics, information retrieval, e-commerce, databases, computer vision and artificial intelligence."
+  },
+  {
+    "code": "CPSC344",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC210"
+        }
+      ]
+    },
+    "title": "Introduction to Human Computer Interaction Methods",
+    "credits": 3,
+    "hours": [
+      2,
+      2,
+      2
+    ],
+    "description": "Basic tools and techniques, teaching a systematic approach to interface design, task analysis, analytic and empirical evaluation methods."
+  },
+  {
+    "code": "CPSC368",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC210"
+        }
+      ]
+    },
+    "title": "Databases in Data Science",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      1
+    ],
+    "description": "Overview of relational and non-relational database systems, role and usage of a database when querying data, data modelling, query languages, and query optimization."
+  },
+  {
+    "code": "CPSC402",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH307"
+        }
+      ]
+    },
+    "title": "Numerical Linear Algebra",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Investigation of the practical techniques of computational linear algebra. Orthogonal transformations and their application to the solution of linear equations, the eigenproblem, and linear least squares."
+  },
+  {
+    "code": "CPSC404",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC304"
+        },
+        {
+          "code": "CPSC213"
+        }
+      ]
+    },
+    "title": "Advanced Relational Databases",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Physical database design, indexing, external mergesort, relational query processing and optimization, transaction processing, concurrency control, crash recovery, special topics."
+  },
+  {
+    "code": "CPSC406",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH307"
+        }
+      ]
+    },
+    "title": "Computational Optimization",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Formulation and analysis of algorithms for continuous and discrete optimization problems; linear, nonlinear, network, dynamic, and integer optimization; large-scale problems; software packages and their implementation; duality theory and sensitivity."
+  },
+  {
+    "code": "CPSC420",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC320"
+        }
+      ]
+    },
+    "title": "Advanced Algorithms Design and Analysis",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "The study of advanced topics in the design and analysis of algorithms and associated data structures. Topics include algorithms for graph-theoretic, algebraic and geometric problems; algorithms on nonsequential models; complexity issues; approximation algorithms."
+  },
+  {
+    "code": "CPSC422",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC322"
+        }
+      ]
+    },
+    "title": "Intelligent Systems",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Principles and techniques underlying the design, implementation and evaluation of intelligent computational systems. (Historically numbered CPSC 422; now offered as AI_V 422.)"
+  },
+  {
+    "code": "CPSC425",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC221"
+        },
+        {
+          "code": "MATH200"
+        }
+      ]
+    },
+    "title": "Computer Vision",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Introduction to the processing and interpretation of images. Image sensing, sampling, and filtering. Algorithms for colour analysis, texture description, stereo imaging, motion interpretation, 3D shape recovery, and recognition."
+  },
+  {
+    "code": "CPSC440",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC340"
+        }
+      ]
+    },
+    "title": "Advanced Machine Learning",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      1
+    ],
+    "description": "Advanced machine learning techniques focusing on probabilistic models. Deep learning and differentiable programming, exponential families and Bayesian inference, probabilistic graphical models and other generative models, Monte Carlo and variational inference methods."
+  },
+  {
+    "code": "CPSC444",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC344"
+        },
+        {
+          "code": "STAT200"
+        }
+      ]
+    },
+    "title": "Advanced Methods for Human Computer Interaction",
+    "credits": 3,
+    "hours": [
+      2,
+      2,
+      2
+    ],
+    "description": "Design and evaluation methodologies and theories; formal models of the user including visual, motor, and information processing; advanced evaluation methods including laboratory experiments and field studies; HCI research frontiers."
+  },
+  {
+    "code": "CPSC445",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC320"
+        },
+        {
+          "code": "BIOL112"
+        },
+        {
+          "code": "BIOL121"
+        }
+      ]
+    },
+    "title": "Algorithms in Bioinformatics",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Sequence alignment, phylogenetic tree reconstruction, prediction of RNA and protein structure, gene finding and sequence annotation, gene expression, and biomolecular computing."
+  },
+  {
+    "code": "AI322",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC340"
+        }
+      ]
+    },
+    "title": "Foundations of Artificial Intelligence",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Introduction to representation and reasoning via topics such as search, problem-solving and planning, logic, and probabilistic graphical models."
+  },
+  {
+    "code": "AI360",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC340"
+        }
+      ]
+    },
+    "title": "Deep Learning",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      1
+    ],
+    "description": "Advanced machine learning focused on deep learning in practice: mathematical foundations, models for unstructured, sequential, spatial, and graph data."
+  },
+  {
+    "code": "AI422",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC322"
+        }
+      ]
+    },
+    "title": "Intelligent Systems",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Principles and techniques underlying the design, implementation and evaluation of intelligent computational systems."
+  },
+  {
+    "code": "CPSC110",
+    "title": "Computation, Programs, and Programming",
+    "credits": 4,
+    "hours": [
+      3,
+      3,
+      0
+    ],
+    "description": "Fundamental program and computation structures. Introductory programming skills. Computation as a tool for information processing, simulation and modelling, and interacting with the world."
+  },
+  {
+    "code": "CPSC121",
+    "coreqs": {
+      "all": [
+        {
+          "code": "CPSC110"
+        }
+      ]
+    },
+    "title": "Models of Computation",
+    "credits": 4,
+    "hours": [
+      3,
+      2,
+      1
+    ],
+    "description": "Physical and mathematical structures of computation. Boolean algebra and combinations logic circuits; proof techniques; functions and sequential circuits; sets and relations; finite state machines; sequential instruction execution."
+  },
+  {
+    "code": "CPSC210",
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC110"
+        }
+      ]
+    },
+    "title": "Software Construction",
+    "credits": 4,
+    "hours": [
+      3,
+      2,
+      0
+    ],
+    "description": "Design, development, and analysis of robust software components. Topics such as software design, computational models, data structures, debugging, and testing."
+  },
+  {
+    "code": "CPSC213",
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC210"
+        },
+        {
+          "code": "CPSC121"
+        }
+      ]
+    },
+    "title": "Introduction to Computer Systems",
+    "credits": 4,
+    "hours": [
+      3,
+      3,
+      0
+    ],
+    "description": "Software architecture, operating systems, and I/O architectures. Relationships between application software, operating systems, and computing hardware; critical sections, deadlock avoidance, and performance; principles and operation of disks and networks."
+  },
+  {
+    "code": "CPSC221",
+    "prereqs": {
+      "all": [
+        {
+          "code": "CPSC210"
+        },
+        {
+          "code": "MATH220"
+        }
+      ]
+    },
+    "title": "Basic Algorithms and Data Structures",
+    "credits": 4,
+    "hours": [
+      3,
+      2,
+      0
+    ],
+    "description": "Design and analysis of basic algorithms and data structures; algorithm analysis methods, searching and sorting algorithms, basic data structures, graphs and concurrency."
+  },
+  {
+    "code": "MATH100",
+    "title": "Differential Calculus with Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Derivatives of elementary functions. Applications and modelling: graphing, optimization."
+  },
+  {
+    "code": "MATH101",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Integral Calculus with Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "The definite integral, integration techniques, applications, modelling, infinite series."
+  },
+  {
+    "code": "MATH200",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH101"
+        }
+      ]
+    },
+    "title": "Calculus III",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Analytic geometry in 2 and 3 dimensions, partial and directional derivatives, chain rule, maxima and minima, second derivative test, Lagrange multipliers, multiple integrals with applications."
+  },
+  {
+    "code": "MATH220",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH200"
+        }
+      ]
+    },
+    "title": "Mathematical Proof",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Sets and functions; induction; cardinality; properties of the real numbers; sequences, series, and limits. Logic, structure, style, and clarity of proofs emphasized throughout."
+  },
+  {
+    "code": "MATH221",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Matrix Algebra",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Systems of linear equations, operations on matrices, determinants, eigenvalues and eigenvectors, diagonalization of symmetric matrices."
+  },
+  {
+    "code": "MATH307",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH221"
+        },
+        {
+          "code": "MATH200"
+        }
+      ]
+    },
+    "title": "Applied Linear Algebra",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Applications of linear algebra to scientific and engineering problems using computer algebra systems."
+  },
+  {
+    "code": "STAT200",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH100"
+        }
+      ]
+    },
+    "title": "Elementary Statistics for Applications",
+    "credits": 3,
+    "hours": [
+      3,
+      1,
+      0
+    ],
+    "description": "Classical, nonparametric, and robust inferences about means, variances, and analysis of variance, using computers. Emphasis on problem formulation, assumptions, and interpretation."
+  },
+  {
+    "code": "STAT302",
+    "prereqs": {
+      "all": [
+        {
+          "code": "MATH200"
+        }
+      ]
+    },
+    "title": "Introduction to Probability",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Basic notions of probability, random variables, expectation and conditional expectation, limit theorems."
+  },
+  {
+    "code": "BIOL112",
+    "title": "Biology of the Cell",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "The principles of cellular and molecular biology using bacterial and eukaryotic examples."
+  },
+  {
+    "code": "BIOL121",
+    "title": "Genetics, Evolution and Ecology",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Principles of storage and transmission of genetic variation; origin and evolution of species and their ecological interactions."
+  }
 ]

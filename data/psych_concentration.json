@@ -1,17 +1,249 @@
 [
-  { "code": "PSYC303", "allowed": true, "prereqs": { "all": [{"code": "PSYC218"}] } },
-  { "code": "PSYC304", "allowed": true, "prereqs": { "all": [{"code": "PSYC100"}] } },
-  { "code": "PSYC305", "allowed": true, "prereqs": { "all": [{"code": "PSYC100"}] } },
-  { "code": "PSYC305A", "allowed": true, "prereqs": { "all": [{"code": "PSYC100"}] } },
-  { "code": "PSYC314", "allowed": true, "prereqs": { "all": [{"code": "PSYC102"}, {"code": "PSYC217"}] } },
-  { "code": "PSYC325", "allowed": true, "prereqs": { "all": [{"code": "PSYC102"}, {"code": "PSYC217"}] } },
-  { "code": "PSYC359", "allowed": true, "prereqs": { "all": [{"code": "PSYC218"}] } },
-  { "code": "PSYC401", "allowed": true, "prereqs": { "all": [{"code": "PSYC217"}] } },
-  { "code": "PSYC402", "allowed": true, "prereqs": { "all": [{"code": "PSYC217"}] } },
-  { "code": "ASTU402", "allowed": true },
-
-  { "code": "PSYC218", "prereqs": { "all": [{"code": "PSYC217"}] } },
-  { "code": "PSYC217", "prereqs": { "all": [{"code": "PSYC100"}] } },
-  { "code": "PSYC100" },
-  { "code": "PSYC102" }
+  {
+    "code": "PSYC303",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "PSYC218"
+        }
+      ]
+    },
+    "title": "Tests and Measurements",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Theory and practice of psychological measurement, statistical models for items and tests, assessment of test reliability and validity, factor analysis, scoring."
+  },
+  {
+    "code": "PSYC304",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "PSYC100"
+        }
+      ]
+    },
+    "title": "Brain and Behaviour",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "The neurobiological bases of behaviour; brain processes involved in perception, motivation, emotion, psychopathology, learning and memory."
+  },
+  {
+    "code": "PSYC305",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "PSYC100"
+        }
+      ]
+    },
+    "title": "Personality Psychology",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Theory and research on individual differences in motivation, emotion, and social behaviour."
+  },
+  {
+    "code": "PSYC305A",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "PSYC100"
+        }
+      ]
+    },
+    "title": "Personality Psychology",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Theory and research on individual differences in motivation, emotion, and social behaviour."
+  },
+  {
+    "code": "PSYC314",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "PSYC102"
+        },
+        {
+          "code": "PSYC217"
+        }
+      ]
+    },
+    "title": "Health Psychology",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Health-related behaviours such as smoking and drug use; effects of stressful events on health; methods for coping with stress."
+  },
+  {
+    "code": "PSYC325",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "PSYC102"
+        },
+        {
+          "code": "PSYC217"
+        }
+      ]
+    },
+    "title": "Socialization: Media Content and Effects",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Examines human development in the context of the socializing role of media."
+  },
+  {
+    "code": "PSYC359",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "PSYC218"
+        }
+      ]
+    },
+    "title": "Advanced Research Methods in Behavioural Sciences",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Prepares students for further research through experimental design and statistical techniques, with lab work."
+  },
+  {
+    "code": "PSYC401",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "PSYC217"
+        }
+      ]
+    },
+    "title": "Clinical Psychology",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Theoretical and research foundations of the processes of assessment and behaviour modification in clinical psychology."
+  },
+  {
+    "code": "PSYC402",
+    "allowed": true,
+    "prereqs": {
+      "all": [
+        {
+          "code": "PSYC217"
+        }
+      ]
+    },
+    "title": "Research in Psychological Disorders",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Focuses on the cognitive, biological, and motivational bases of psychological disorders, with an emphasis on current research methods."
+  },
+  {
+    "code": "ASTU402",
+    "allowed": true,
+    "title": "Living Language: Science and Society",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "A multidisciplinary course examining, integrating, and applying subject-specific knowledge through the lens of language and the language sciences framework, focusing on themes of real-world importance."
+  },
+  {
+    "code": "PSYC218",
+    "prereqs": {
+      "all": [
+        {
+          "code": "PSYC217"
+        }
+      ]
+    },
+    "title": "Analysis of Behavioural Data",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Inferential statistics in psychology and conceptual interpretation of data; experimental design."
+  },
+  {
+    "code": "PSYC217",
+    "prereqs": {
+      "all": [
+        {
+          "code": "PSYC100"
+        }
+      ]
+    },
+    "title": "Research Methods",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Various research methods used in psychology, with an emphasis on critical thinking and experimental design."
+  },
+  {
+    "code": "PSYC100",
+    "title": "Introductory Psychology",
+    "credits": 6,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Introduction to methods and statistics, biopsychology, learning, perception, memory, cognition, motivation, assessment, developmental, personality, clinical, and social psychology."
+  },
+  {
+    "code": "PSYC102",
+    "title": "Introduction to Developmental, Social, Personality, and Clinical Psychology",
+    "credits": 3,
+    "hours": [
+      3,
+      0,
+      0
+    ],
+    "description": "Introduction to methods and statistics, motivation, assessment, developmental, personality, clinical, and social psychology."
+  }
 ]
