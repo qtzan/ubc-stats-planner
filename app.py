@@ -45,6 +45,7 @@ def init_db():
             user_id INTEGER NOT NULL REFERENCES users(id),
             course_code TEXT NOT NULL,
             body TEXT NOT NULL,
+            is_anonymous INTEGER NOT NULL DEFAULT 0,
             created_at TEXT NOT NULL
         );
         CREATE TABLE IF NOT EXISTS saved_paths (
@@ -87,12 +88,19 @@ def get_course_reviews(conn, code, user):
     ).fetchone()
 
     comments = conn.execute(
-        'SELECT comments.body, comments.created_at, users.name, ratings.difficulty, ratings.enjoyment '
+        'SELECT comments.body, comments.created_at, comments.is_anonymous, users.name, ratings.difficulty, ratings.enjoyment '
         'FROM comments '
         'JOIN users ON users.id = comments.user_id '
         'LEFT JOIN ratings ON ratings.user_id = comments.user_id AND ratings.course_code = comments.course_code '
         'WHERE comments.course_code = ? ORDER BY comments.created_at DESC', (code,)
     ).fetchall()
+
+    comment_list = []
+    for c in comments:
+        comment = dict(c)
+        if comment.pop('is_anonymous'):
+            comment['name'] = 'Anonymous'
+        comment_list.append(comment)
 
     user_rating = None
     if user:
@@ -105,7 +113,7 @@ def get_course_reviews(conn, code, user):
         'avg_difficulty': round(ratings['avg_difficulty'], 1) if ratings['rating_count'] else None,
         'avg_enjoyment': round(ratings['avg_enjoyment'], 1) if ratings['rating_count'] else None,
         'rating_count': ratings['rating_count'],
-        'comments': [dict(c) for c in comments],
+        'comments': comment_list,
         'user_rating': dict(user_rating) if user_rating else None,
     }
 
@@ -160,17 +168,13 @@ def logout():
     return jsonify({'ok': True})
 
 
-@app.route('/api/courses/<code>/review', methods=['POST'])
-def review_course(code):
+@app.route('/api/courses/<code>/rate', methods=['POST'])
+def rate_course(code):
     user = get_current_user()
     if not user:
-        return jsonify({'error': 'You must be logged in to rate and review a course.'}), 401
+        return jsonify({'error': 'You must be logged in to rate a course.'}), 401
 
     data = request.get_json(silent=True) or {}
-    body = (data.get('body') or '').strip()
-    if not body:
-        return jsonify({'error': 'Please leave a comment along with your rating.'}), 400
-
     try:
         difficulty = int(data.get('difficulty'))
         enjoyment = int(data.get('enjoyment'))
@@ -186,9 +190,28 @@ def review_course(code):
         'ON CONFLICT(user_id, course_code) DO UPDATE SET difficulty = excluded.difficulty, enjoyment = excluded.enjoyment',
         (user['id'], code, difficulty, enjoyment)
     )
+    conn.commit()
+    reviews = get_course_reviews(conn, code, user)
+    conn.close()
+    return jsonify(reviews)
+
+
+@app.route('/api/courses/<code>/comment', methods=['POST'])
+def comment_on_course(code):
+    user = get_current_user()
+    if not user:
+        return jsonify({'error': 'You must be logged in to leave a comment.'}), 401
+
+    data = request.get_json(silent=True) or {}
+    body = (data.get('body') or '').strip()
+    if not body:
+        return jsonify({'error': 'Comment cannot be empty.'}), 400
+    is_anonymous = bool(data.get('anonymous'))
+
+    conn = get_db()
     conn.execute(
-        'INSERT INTO comments (user_id, course_code, body, created_at) VALUES (?, ?, ?, ?)',
-        (user['id'], code, body, datetime.now(timezone.utc).isoformat())
+        'INSERT INTO comments (user_id, course_code, body, is_anonymous, created_at) VALUES (?, ?, ?, ?, ?)',
+        (user['id'], code, body, int(is_anonymous), datetime.now(timezone.utc).isoformat())
     )
     conn.commit()
     reviews = get_course_reviews(conn, code, user)

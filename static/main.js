@@ -123,8 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ---------------------------------------------------------------------------
-// Course ratings and comments (a rating always requires an accompanying
-// comment, so both are submitted together as a single review)
+// Course ratings and comments (submitted independently of each other)
 // ---------------------------------------------------------------------------
 
 // Reflect a course's latest reviews (rating summary + comment list) in the DOM
@@ -191,33 +190,66 @@ document.querySelectorAll('.star-rating').forEach(container => {
     });
 });
 
-document.querySelectorAll('.submit-review-btn').forEach(btn => {
+document.querySelectorAll('.save-rating-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
         const code = btn.dataset.course;
 
         if (!window.IS_LOGGED_IN) {
-            openAuthModal('Please log in or sign up to rate and review this course.');
+            openAuthModal('Please log in or sign up to rate this course.');
             return;
         }
 
         const difficulty = Number(document.querySelector(`.star-rating[data-course="${code}"][data-type="difficulty"]`).dataset.value);
         const enjoyment = Number(document.querySelector(`.star-rating[data-course="${code}"][data-type="enjoyment"]`).dataset.value);
-        const textarea = document.querySelector(`.comment-input[data-course="${code}"]`);
-        const body = textarea.value.trim();
 
         if (!difficulty || !enjoyment) {
             alert('Please select both a difficulty and enjoyment rating.');
             return;
         }
-        if (!body) {
-            alert('Please leave a comment along with your rating.');
+
+        const response = await fetch(`/api/courses/${code}/rate`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ difficulty, enjoyment })
+        });
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(data.error || 'Something went wrong.');
             return;
         }
 
-        const response = await fetch(`/api/courses/${code}/review`, {
+        updateCourseReviews(code, data);
+    });
+});
+
+document.querySelectorAll('.anon-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const isAnonymous = btn.dataset.anonymous === 'true';
+        btn.dataset.anonymous = (!isAnonymous).toString();
+        btn.textContent = !isAnonymous ? 'Commenting anonymously' : `Commenting as: ${btn.dataset.name}`;
+    });
+});
+
+document.querySelectorAll('.post-comment-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+        const code = btn.dataset.course;
+
+        if (!window.IS_LOGGED_IN) {
+            openAuthModal('Please log in or sign up to leave a comment.');
+            return;
+        }
+
+        const textarea = document.querySelector(`.comment-input[data-course="${code}"]`);
+        const body = textarea.value.trim();
+        if (!body) return;
+
+        const anonymous = document.querySelector(`.anon-toggle-btn[data-course="${code}"]`).dataset.anonymous === 'true';
+
+        const response = await fetch(`/api/courses/${code}/comment`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ difficulty, enjoyment, body })
+            body: JSON.stringify({ body, anonymous })
         });
         const data = await response.json();
 

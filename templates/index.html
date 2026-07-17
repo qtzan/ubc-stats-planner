@@ -115,9 +115,9 @@
 					</div>
 				</div>
 
-				<!-- Rate & review (a rating requires an accompanying comment) -->
+				<!-- Rating -->
 				<div class="mt-4 pt-4 border-t border-gray-300">
-					<h3 class="font-bold text-gray-900">Rate &amp; Review this Course</h3>
+					<h3 class="font-bold text-gray-900">Rate this Course</h3>
 
 					<p class="text-sm text-gray-700 mt-2">Difficulty</p>
 					<div class="star-rating flex gap-1" data-course="{{ course.code }}" data-type="difficulty" data-value="{{ course.user_rating.difficulty if course.user_rating else 0 }}">
@@ -133,17 +133,11 @@
 						{% endfor %}
 					</div>
 
-					<textarea
-						class="comment-input mt-2 w-full border border-gray-300 rounded p-2 text-sm"
-						rows="2"
-						placeholder="You must leave a comment along with your rating..."
-						data-course="{{ course.code }}"
-					></textarea>
 					<button
-						class="submit-review-btn mt-1 rounded-full py-1 px-4 text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white cursor-pointer"
+						class="save-rating-btn mt-2 rounded-full py-1 px-4 text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white cursor-pointer"
 						data-course="{{ course.code }}"
 					>
-						Submit Rating &amp; Review
+						Save Rating
 					</button>
 				</div>
 
@@ -162,6 +156,30 @@
 						</li>
 						{% endfor %}
 					</ul>
+
+					<textarea
+						class="comment-input mt-2 w-full border border-gray-300 rounded p-2 text-sm"
+						rows="2"
+						placeholder="Leave a comment..."
+						data-course="{{ course.code }}"
+					></textarea>
+					<div class="flex items-center gap-2 mt-1">
+						<button
+							class="post-comment-btn rounded-full py-1 px-4 text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white cursor-pointer"
+							data-course="{{ course.code }}"
+						>
+							Post Comment
+						</button>
+						<button
+							type="button"
+							class="anon-toggle-btn rounded-full py-1 px-3 text-xs font-semibold bg-gray-200 hover:bg-gray-300 text-gray-900 cursor-pointer"
+							data-course="{{ course.code }}"
+							data-anonymous="false"
+							data-name="{{ current_user.name if current_user else '' }}"
+						>
+							Commenting as: {{ current_user.name if current_user else 'yourself' }}
+						</button>
+					</div>
 				</div>
 			</div>
 			{% endfor %}
