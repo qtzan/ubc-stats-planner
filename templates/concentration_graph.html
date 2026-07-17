@@ -10,23 +10,32 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 
 	<!-- Local JS -->
+	<script>window.IS_LOGGED_IN = {{ 'true' if current_user else 'false' }};</script>
+	<script src="/static/auth.js" defer></script>
 	<script src="/static/concentration.js" defer></script>
 </head>
 
 <body class="p-4 bg-gray-50 w-full min-h-screen md:max-h-screen flex flex-col gap-y-4">
 
 	<!-- Title -->
-	<div class="relative flex items-center justify-center">
-		<a href="/thematic-concentration" class="absolute left-0 text-blue-700 underline">&larr; Back to Thematic Concentration</a>
-		<h1 class="text-gray-900 text-3xl font-bold text-center">{{ title }}</h1>
+	<div class="flex items-center justify-between gap-2 flex-wrap">
+		<div class="flex items-center gap-3 flex-wrap">
+			<a href="/thematic-concentration" class="text-blue-700 underline whitespace-nowrap">&larr; Back to Thematic Concentration</a>
+			<h1 class="text-gray-900 text-3xl font-bold">{{ title }}</h1>
+		</div>
+		<div class="flex items-center gap-2">
+			{% include "_auth_widget.html" %}
+		</div>
 	</div>
+
+	{% include "_auth_modal.html" %}
 
 	<p class="text-gray-900 text-center text-sm">
 		Select up to 3 courses (9 credits) you plan to take. The graph will highlight the prerequisites and corequisites you'll need.
 	</p>
 
 	<!-- Allowed concentration course buttons -->
-	<div id="concentration-buttons" class="flex flex-wrap justify-center gap-2">
+	<div id="concentration-buttons" class="flex flex-wrap justify-center gap-2" data-slug="{{ slug }}">
 		{% for course in allowedCourses %}
 			<div
 				class="concentration-button rounded-full py-1 px-4 text-sm cursor-pointer bg-blue-200 hover:bg-blue-300 text-gray-900"
@@ -51,6 +60,13 @@
 			<div id="course-summary" class="hidden mb-4 p-3 rounded-lg border border-blue-300 bg-blue-50">
 				<h2 class="text-lg font-bold text-gray-900">Courses You'll Need</h2>
 				<ul id="course-summary-list" class="list-disc pl-6 my-2 text-gray-900"></ul>
+				<button
+					id="save-path-btn"
+					class="rounded-full py-1 px-4 text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white cursor-pointer"
+				>
+					Save This Path
+				</button>
+				<span id="save-path-status" class="hidden ml-2 text-sm text-green-700">Saved!</span>
 			</div>
 
 			<!-- Course Information Legend (hidden on mobile)-->

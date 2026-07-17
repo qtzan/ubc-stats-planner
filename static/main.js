@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Get all node elements in the SVG
     const nodes = document.querySelectorAll('.node');
-    
+
     // Set default styles on each node
     nodes.forEach(node => {
         node.addEventListener('click', () => setActiveNode(node));
@@ -120,4 +120,113 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     });
 
+});
+
+// ---------------------------------------------------------------------------
+// Course ratings and comments (a rating always requires an accompanying
+// comment, so both are submitted together as a single review)
+// ---------------------------------------------------------------------------
+
+// Reflect a course's latest reviews (rating summary + comment list) in the DOM
+function updateCourseReviews(code, reviews) {
+    const summary = document.querySelector(`.rating-summary[data-course="${code}"]`);
+    if (summary) {
+        summary.innerHTML = reviews.rating_count
+            ? `<div class="grid grid-cols-2 gap-2">
+                <div class="rounded-lg bg-blue-50 border border-blue-200 p-2 text-center">
+                    <p class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Difficulty</p>
+                    <p class="text-2xl font-bold text-gray-900">${reviews.avg_difficulty}<span class="text-sm font-normal text-gray-500">/5</span></p>
+                </div>
+                <div class="rounded-lg bg-blue-50 border border-blue-200 p-2 text-center">
+                    <p class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Enjoyment</p>
+                    <p class="text-2xl font-bold text-gray-900">${reviews.avg_enjoyment}<span class="text-sm font-normal text-gray-500">/5</span></p>
+                </div>
+               </div>
+               <p class="text-xs text-gray-500 mt-1 text-center">Based on ${reviews.rating_count} rating${reviews.rating_count !== 1 ? 's' : ''}</p>`
+            : '<p class="text-sm text-gray-600">No ratings yet.</p>';
+    }
+
+    const commentList = document.querySelector(`.comment-list[data-course="${code}"]`);
+    if (commentList) {
+        commentList.innerHTML = '';
+        reviews.comments.forEach(comment => {
+            const li = document.createElement('li');
+            li.className = 'text-sm text-gray-900';
+
+            const strong = document.createElement('strong');
+            strong.textContent = `${comment.name}: `;
+            li.appendChild(strong);
+
+            if (comment.difficulty && comment.enjoyment) {
+                const ratingSpan = document.createElement('span');
+                ratingSpan.className = 'text-xs text-gray-500';
+                ratingSpan.textContent = `(Difficulty: ${comment.difficulty}/5, Enjoyment: ${comment.enjoyment}/5) `;
+                li.appendChild(ratingSpan);
+            }
+
+            li.appendChild(document.createTextNode(comment.body));
+            commentList.appendChild(li);
+        });
+    }
+}
+
+function fillStars(container, value) {
+    container.dataset.value = value;
+    container.querySelectorAll('.star').forEach(star => {
+        const starValue = Number(star.dataset.value);
+        star.classList.toggle('text-yellow-400', starValue <= value);
+        star.classList.toggle('text-gray-300', starValue > value);
+    });
+}
+
+document.querySelectorAll('.star-rating').forEach(container => {
+    container.querySelectorAll('.star').forEach(star => {
+        star.addEventListener('click', () => {
+            if (!window.IS_LOGGED_IN) {
+                openAuthModal('Please log in or sign up to rate this course.');
+                return;
+            }
+            fillStars(container, Number(star.dataset.value));
+        });
+    });
+});
+
+document.querySelectorAll('.submit-review-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+        const code = btn.dataset.course;
+
+        if (!window.IS_LOGGED_IN) {
+            openAuthModal('Please log in or sign up to rate and review this course.');
+            return;
+        }
+
+        const difficulty = Number(document.querySelector(`.star-rating[data-course="${code}"][data-type="difficulty"]`).dataset.value);
+        const enjoyment = Number(document.querySelector(`.star-rating[data-course="${code}"][data-type="enjoyment"]`).dataset.value);
+        const textarea = document.querySelector(`.comment-input[data-course="${code}"]`);
+        const body = textarea.value.trim();
+
+        if (!difficulty || !enjoyment) {
+            alert('Please select both a difficulty and enjoyment rating.');
+            return;
+        }
+        if (!body) {
+            alert('Please leave a comment along with your rating.');
+            return;
+        }
+
+        const response = await fetch(`/api/courses/${code}/review`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ difficulty, enjoyment, body })
+        });
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(data.error || 'Something went wrong.');
+            return;
+        }
+
+        textarea.value = '';
+        updateCourseReviews(code, data);
+    });
 });

@@ -11,21 +11,28 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 	<!-- Local JS -->
+	<script>window.IS_LOGGED_IN = {{ 'true' if current_user else 'false' }};</script>
+	<script src="/static/auth.js" defer></script>
 	<script src="/static/main.js" defer></script>
 </head>
 
 <body class="p-4 bg-gray-50 w-full min-h-screen md:max-h-screen flex flex-col gap-y-4">
 
 	<!-- Title and Subtitle -->
-	<div class="flex items-center justify-between">
+	<div class="relative flex items-center justify-between gap-2 flex-wrap">
 		<h1 class="text-gray-900 text-3xl font-bold mb">UBC Statistics Course Planner</h1>
 		<a
 			href="/thematic-concentration"
-			class="rounded-full py-2 px-4 text-sm font-semibold cursor-pointer bg-blue-600 hover:bg-blue-700 text-white whitespace-nowrap"
+			class="sm:absolute sm:left-1/2 sm:-translate-x-1/2 rounded-full py-2 px-4 text-sm font-semibold cursor-pointer bg-blue-600 hover:bg-blue-700 text-white whitespace-nowrap"
 		>
 			Plan Your Thematic Concentration
 		</a>
+		<div class="flex items-center gap-2">
+			{% include "_auth_widget.html" %}
+		</div>
 	</div>
+
+	{% include "_auth_modal.html" %}
 
 	<!-- Program selection buttons styled with TailwindCSS and Alpine.js -->
 	<div
@@ -42,6 +49,10 @@
 			</div>
 		{% endfor %}
 	</div>
+
+	<p class="text-sm text-gray-600 text-center">
+		Click on a course in the graph below to view its details and leave a rating.
+	</p>
 
 	<!-- Course Map and Information Section -->
 	<div class="md:grid md:grid-cols-3 gap-x-4 flex-1 min-w-0 min-h-0">
@@ -72,14 +83,86 @@
 					<li><strong>Credits:</strong> {{ course.credits }}</li>
 					<li><strong>Hours:</strong> {{ course.hours }}</li>
 				</ul>
-				<a 
+				<a
 					class="text-blue-700 underline"
-					href="{{ course.grades_url }}" 
-					target="_blank" 
+					href="{{ course.grades_url }}"
+					target="_blank"
 					rel="noopener noreferrer"
 				>
 					View Historical Averages for {{ course.code }}
 				</a>
+
+				<!-- Rating summary -->
+				<div class="mt-4 pt-4 border-t border-gray-300">
+					<h3 class="font-bold text-gray-900">Ratings</h3>
+
+					<div class="rating-summary mt-2" data-course="{{ course.code }}">
+						{% if course.rating_count %}
+						<div class="grid grid-cols-2 gap-2">
+							<div class="rounded-lg bg-blue-50 border border-blue-200 p-2 text-center">
+								<p class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Difficulty</p>
+								<p class="text-2xl font-bold text-gray-900">{{ course.avg_difficulty }}<span class="text-sm font-normal text-gray-500">/5</span></p>
+							</div>
+							<div class="rounded-lg bg-blue-50 border border-blue-200 p-2 text-center">
+								<p class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Enjoyment</p>
+								<p class="text-2xl font-bold text-gray-900">{{ course.avg_enjoyment }}<span class="text-sm font-normal text-gray-500">/5</span></p>
+							</div>
+						</div>
+						<p class="text-xs text-gray-500 mt-1 text-center">Based on {{ course.rating_count }} rating{{ 's' if course.rating_count != 1 else '' }}</p>
+						{% else %}
+						<p class="text-sm text-gray-600">No ratings yet.</p>
+						{% endif %}
+					</div>
+				</div>
+
+				<!-- Rate & review (a rating requires an accompanying comment) -->
+				<div class="mt-4 pt-4 border-t border-gray-300">
+					<h3 class="font-bold text-gray-900">Rate &amp; Review this Course</h3>
+
+					<p class="text-sm text-gray-700 mt-2">Difficulty</p>
+					<div class="star-rating flex gap-1" data-course="{{ course.code }}" data-type="difficulty" data-value="{{ course.user_rating.difficulty if course.user_rating else 0 }}">
+						{% for i in range(1, 6) %}
+						<span class="star cursor-pointer text-2xl leading-none {{ 'text-yellow-400' if course.user_rating and i <= course.user_rating.difficulty else 'text-gray-300' }}" data-value="{{ i }}">&#9733;</span>
+						{% endfor %}
+					</div>
+
+					<p class="text-sm text-gray-700 mt-2">Enjoyment</p>
+					<div class="star-rating flex gap-1" data-course="{{ course.code }}" data-type="enjoyment" data-value="{{ course.user_rating.enjoyment if course.user_rating else 0 }}">
+						{% for i in range(1, 6) %}
+						<span class="star cursor-pointer text-2xl leading-none {{ 'text-yellow-400' if course.user_rating and i <= course.user_rating.enjoyment else 'text-gray-300' }}" data-value="{{ i }}">&#9733;</span>
+						{% endfor %}
+					</div>
+
+					<textarea
+						class="comment-input mt-2 w-full border border-gray-300 rounded p-2 text-sm"
+						rows="2"
+						placeholder="You must leave a comment along with your rating..."
+						data-course="{{ course.code }}"
+					></textarea>
+					<button
+						class="submit-review-btn mt-1 rounded-full py-1 px-4 text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white cursor-pointer"
+						data-course="{{ course.code }}"
+					>
+						Submit Rating &amp; Review
+					</button>
+				</div>
+
+				<!-- Comments -->
+				<div class="mt-4 pt-4 border-t border-gray-300">
+					<h3 class="font-bold text-gray-900">Comments</h3>
+
+					<ul class="comment-list mt-2 flex flex-col gap-y-2" data-course="{{ course.code }}">
+						{% for comment in course.comments %}
+						<li class="text-sm text-gray-900">
+							<strong>{{ comment.name }}:</strong>
+							{% if comment.difficulty and comment.enjoyment %}
+							<span class="text-xs text-gray-500">(Difficulty: {{ comment.difficulty }}/5, Enjoyment: {{ comment.enjoyment }}/5)</span>
+							{% endif %}
+							{{ comment.body }}
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
 			</div>
 			{% endfor %}
 

@@ -146,6 +146,32 @@ document.querySelectorAll(".concentration-button").forEach(btn => {
     });
 });
 
+document.getElementById('save-path-btn')?.addEventListener('click', async () => {
+    if (!window.IS_LOGGED_IN) {
+        openAuthModal('Please log in or sign up to save this path.');
+        return;
+    }
+
+    const slug = document.getElementById('concentration-buttons').dataset.slug;
+    const statusEl = document.getElementById('save-path-status');
+    statusEl.classList.add('hidden');
+
+    const response = await fetch(`/api/concentrations/${slug}/save`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ selected: Array.from(selectedCourses) })
+    });
+    const data = await response.json();
+
+    if (!response.ok) {
+        alert(data.error || 'Something went wrong.');
+        return;
+    }
+
+    statusEl.classList.remove('hidden');
+    setTimeout(() => statusEl.classList.add('hidden'), 3000);
+});
+
 document.addEventListener('DOMContentLoaded', function() {
 
     // Get all node elements in the SVG
