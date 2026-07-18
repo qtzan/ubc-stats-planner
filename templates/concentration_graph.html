@@ -27,17 +27,19 @@
 	{% include "_auth_modal.html" %}
 
 	<!-- Title -->
-	<h1 class="text-gray-900 text-3xl font-bold text-center mt-2">{{ title }}</h1>
+	<h1 class="text-[#0f1b3d] text-3xl font-bold text-center mt-2">{{ title }}</h1>
 
-	<p class="text-gray-900 text-center text-sm">
-		Select up to 3 courses (9 credits) you plan to take. The graph will highlight the prerequisites and corequisites you'll need.
+	<p class="text-[#0f1b3d] text-center text-sm">
+		Select up to 3 courses (9 credits) you plan to take.
+		<span class="hidden md:inline">The graph will highlight the prerequisites and corequisites you'll need.</span>
+		<span class="md:hidden">The "Courses You'll Need" list below will show the prerequisites and corequisites you'll need.</span>
 	</p>
 
 	<!-- Allowed concentration course buttons -->
 	<div id="concentration-buttons" class="flex flex-wrap justify-center gap-2" data-slug="{{ slug }}">
 		{% for course in allowedCourses %}
 			<div
-				class="concentration-button rounded-full py-1 px-4 text-sm cursor-pointer bg-blue-200 hover:bg-blue-300 text-gray-900"
+				class="concentration-button rounded-full py-1 px-4 text-sm cursor-pointer bg-blue-200 hover:bg-blue-300 text-[#0f1b3d]"
 				data-code="{{ course.code }}"
 			>
 				{{ course.subject }} {{ course.number }}
@@ -48,17 +50,34 @@
 	<!-- Course Map and Information Section -->
 	<div class="md:grid md:grid-cols-3 gap-x-4 flex-1 min-w-0 min-h-0">
 
-		<!-- Course Map SVG generated in app.py -->
-		<div class="rounded-lg border border-gray-900 col-span-2 flex-row bg-white overflow-hidden h-full p-2">
+		<!-- Course Map SVG generated in app.py (hidden on mobile — a graph this dense doesn't fit a phone screen) -->
+		<div class="hidden md:block rounded-lg border border-gray-900 col-span-2 flex-row bg-white overflow-hidden h-full p-2">
 			{{ courseMap | safe }}
+		</div>
+
+		<!-- Mobile-only course list, shown instead of the graph on small screens -->
+		<div class="md:hidden rounded-lg border border-gray-900 bg-white p-2 max-h-64 overflow-auto">
+			<ul class="divide-y divide-gray-200">
+				{% for course in courseData %}
+				<li>
+					<button
+						type="button"
+						class="course-list-item w-full text-left py-2 text-sm text-[#0f1b3d] cursor-pointer"
+						data-course="{{ course.code }}"
+					>
+						<strong>{{ course.subject }} {{ course.number }}</strong>{% if course.title %}: {{ course.title }}{% endif %}
+					</button>
+				</li>
+				{% endfor %}
+			</ul>
 		</div>
 
 		<div class="col-span-1 overflow-auto">
 
 			<!-- Summary of every course needed for the current selection -->
 			<div id="course-summary" class="hidden mb-4 p-3 rounded-lg border border-blue-300 bg-blue-50">
-				<h2 class="text-lg font-bold text-gray-900">Courses You'll Need</h2>
-				<ul id="course-summary-list" class="list-disc pl-6 my-2 text-gray-900"></ul>
+				<h2 class="text-lg font-bold text-[#0f1b3d]">Courses You'll Need</h2>
+				<ul id="course-summary-list" class="list-disc pl-6 my-2 text-[#0f1b3d]"></ul>
 				<button
 					id="save-path-btn"
 					class="rounded-full py-1 px-4 text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white cursor-pointer"
@@ -70,7 +89,7 @@
 
 			<!-- Course Information Legend (hidden on mobile)-->
 			<div class="hidden md:block">
-				<h2 class="text-lg font-bold mb text-gray-900">Course Information Legend</h2>
+				<h2 class="text-lg font-bold mb text-[#0f1b3d]">Course Information Legend</h2>
 				<ul class="list-disc pl-6 my-2">
 					<li><strong>Solid lines</strong>: Prerequisites</li>
 					<li><strong>Dashed lines</strong>: Corequisites</li>
@@ -81,7 +100,7 @@
 			<!-- List of Course Details -->
 			{% for course in courseData %}
 			<div class="course-details mt-4 hidden" id="{{ course.code }}">
-				<h2 class="text-lg font-bold text-gray-900">{{ course.subject }} {{ course.number }}{% if course.title %}: {{ course.title }}{% endif %}</h2>
+				<h2 class="text-lg font-bold text-[#0f1b3d]">{{ course.subject }} {{ course.number }}{% if course.title %}: {{ course.title }}{% endif %}</h2>
 				{% if course.description %}
 				<p>{{ course.description }}</p>
 				{% endif %}

@@ -131,13 +131,13 @@ document.querySelectorAll(".concentration-button").forEach(btn => {
         if (selectedCourses.has(code)) {
             selectedCourses.delete(code);
             btn.classList.remove('bg-blue-800', 'text-white');
-            btn.classList.add('hover:bg-blue-300', 'bg-blue-200', 'text-gray-900');
+            btn.classList.add('hover:bg-blue-300', 'bg-blue-200', 'text-[#0f1b3d]');
         } else {
             if (selectedCourses.size >= MAX_SELECTED_COURSES) {
                 return;
             }
             selectedCourses.add(code);
-            btn.classList.remove('hover:bg-blue-300', 'bg-blue-200', 'text-gray-900');
+            btn.classList.remove('hover:bg-blue-300', 'bg-blue-200', 'text-[#0f1b3d]');
             btn.classList.add('bg-blue-800', 'text-white');
         }
 
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
         node.style.cursor = 'pointer';
 
         const ellipse = node.querySelector('ellipse');
-        ellipse.setAttribute('stroke', '#111827');
+        ellipse.setAttribute('stroke', '#0f1b3d');
         ellipse.setAttribute('stroke-width', '0.75');
 
         const textElements = node.querySelectorAll('text');
@@ -192,4 +192,15 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     });
 
+});
+
+// Mobile course list (shown instead of the graph on small screens) — tapping a
+// course just shows its details, since there's no graph to highlight
+document.querySelectorAll('.course-list-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const code = btn.dataset.course;
+        document.querySelectorAll('.course-details').forEach(detail => {
+            detail.style.display = detail.id === code ? 'block' : 'none';
+        });
+    });
 });

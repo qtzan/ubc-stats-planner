@@ -17,7 +17,7 @@ function showTab(name) {
         tabButtons[key].classList.toggle('bg-blue-600', key === name);
         tabButtons[key].classList.toggle('text-white', key === name);
         tabButtons[key].classList.toggle('bg-gray-200', key !== name);
-        tabButtons[key].classList.toggle('text-gray-900', key !== name);
+        tabButtons[key].classList.toggle('text-[#0f1b3d]', key !== name);
     });
 }
 

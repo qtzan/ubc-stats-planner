@@ -17,16 +17,19 @@
 
 <body class="p-4 bg-gray-50 w-full min-h-screen md:max-h-screen flex flex-col gap-y-4" data-logged-in="{{ 'true' if current_user else 'false' }}">
 
-	<!-- Title and Subtitle -->
-	<div class="relative flex items-center justify-between gap-2 flex-wrap">
-		<h1 class="text-gray-900 text-3xl font-bold mb">UBC Statistics Course Planner</h1>
-		<a
-			href="/thematic-concentration"
-			class="sm:absolute sm:left-1/2 sm:-translate-x-1/2 rounded-full py-2 px-4 text-sm font-semibold cursor-pointer bg-blue-600 hover:bg-blue-700 text-white whitespace-nowrap"
-		>
-			Plan Your Thematic Concentration
-		</a>
-		<div class="flex items-center gap-2">
+	<!-- Header -->
+	<div class="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-start gap-2">
+		<div class="hidden sm:block"></div>
+		<div class="flex flex-col items-center gap-4">
+			<h1 class="text-[#0f1b3d] text-3xl font-bold text-center whitespace-nowrap">UBC Statistics Course Planner</h1>
+			<a
+				href="/thematic-concentration"
+				class="rounded-full py-2 px-4 text-sm font-semibold cursor-pointer bg-blue-600 hover:bg-blue-700 text-white whitespace-nowrap"
+			>
+				Plan Your Thematic Concentration
+			</a>
+		</div>
+		<div class="flex items-center justify-center sm:justify-end gap-2">
 			{% include "_auth_widget.html" %}
 		</div>
 	</div>
@@ -41,7 +44,7 @@
 	>
 		{% for program in programs %}
 			<div
-				class="program-button rounded-full py-2 px-4 h-full flex items-center justify-center text-center text-sm cursor-pointer bg-blue-200 hover:bg-blue-300 text-gray-900"
+				class="program-button rounded-full py-2 px-4 h-full flex items-center justify-center text-center text-sm cursor-pointer bg-blue-200 hover:bg-blue-300 text-[#0f1b3d]"
 				data-program="{{ program.program }}"
 			>
 				{{program.program}}
@@ -49,34 +52,53 @@
 		{% endfor %}
 	</div>
 
-	<p class="text-sm text-gray-600 text-center">
-		Click on a course in the graph below to view its details and leave a rating.
-	</p>
-
 	<!-- Course Map and Information Section -->
 	<div class="md:grid md:grid-cols-3 gap-x-4 flex-1 min-w-0 min-h-0">
 
-		<!-- Course Map SVG generated in app.py -->
-		<div class="rounded-lg border border-gray-900 col-span-2 flex-row bg-white overflow-hidden h-full p-2">
+		<!-- Course Map SVG generated in app.py (hidden on mobile — a graph this dense doesn't fit a phone screen) -->
+		<div class="hidden md:block rounded-lg border border-gray-900 col-span-2 flex-row bg-white overflow-hidden h-full p-2">
 			{{ courseMap | safe }}
+		</div>
+
+		<!-- Mobile-only course list, shown instead of the graph on small screens -->
+		<div class="md:hidden rounded-lg border border-gray-900 bg-white p-2 max-h-64 overflow-auto">
+			<ul class="divide-y divide-gray-200">
+				{% for course in courseData %}
+				<li>
+					<button
+						type="button"
+						class="course-list-item w-full text-left py-2 text-sm text-[#0f1b3d] cursor-pointer"
+						data-course="{{ course.code }}"
+					>
+						<strong>{{ course.code }}</strong>: {{ course.title }}
+					</button>
+				</li>
+				{% endfor %}
+			</ul>
 		</div>
 
 		<div class="col-span-1 overflow-auto">
 
 			<!-- Course Information Legend (hidden on mobile)-->
 			<div class="hidden md:block">
-				<h2 class="text-lg font-bold mb text-gray-900">Course Information Legend</h2>
-				<ul class="list-disc pl-6 my-2">
+				<h2 class="text-sm font-bold text-[#0f1b3d]">Course Information Legend</h2>
+				<ul class="list-disc pl-5 my-1 text-xs text-gray-700">
 					<li><strong>Solid lines</strong>: Prerequisites</li>
 					<li><strong>Dashed lines</strong>: Corequisites</li>
 					<li><strong>Blue courses</strong>: Required for selected program</li>
 				</ul>
 			</div>
 
+			<!-- Hint text — hidden once a course's details are open -->
+			<p id="course-hint" class="text-sm text-gray-600 mt-2">
+				<span class="hidden md:inline">Click on a course in the graph to view its details and leave a rating.</span>
+				<span class="md:hidden">Tap a course above to view its details and leave a rating.</span>
+			</p>
+
 			<!-- List of Course Descriptions -->
 			{% for course in courseData %}
 			<div class="course-details mt-4 hidden" id="{{ course.code }}">
-				<h2 class="text-lg font-bold text-gray-900">{{ course.code }}: {{ course.title }}</h2>
+				<h2 class="text-lg font-bold text-[#0f1b3d]">{{ course.code }}: {{ course.title }}</h2>
 				<p>{{ course.description }}</p>
 				<ul class="list-disc pl-6 my-2">
 					<li><strong>Credits:</strong> {{ course.credits }}</li>
@@ -93,18 +115,18 @@
 
 				<!-- Rating summary -->
 				<div class="mt-4 pt-4 border-t border-gray-300">
-					<h3 class="font-bold text-gray-900">Ratings</h3>
+					<h3 class="font-bold text-[#0f1b3d]">Ratings</h3>
 
 					<div class="rating-summary mt-2" data-course="{{ course.code }}">
 						{% if course.rating_count %}
 						<div class="grid grid-cols-2 gap-2">
 							<div class="rounded-lg bg-blue-50 border border-blue-200 p-2 text-center">
 								<p class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Difficulty</p>
-								<p class="text-2xl font-bold text-gray-900">{{ course.avg_difficulty }}<span class="text-sm font-normal text-gray-500">/5</span></p>
+								<p class="text-2xl font-bold text-[#0f1b3d]">{{ course.avg_difficulty }}<span class="text-sm font-normal text-gray-500">/5</span></p>
 							</div>
 							<div class="rounded-lg bg-blue-50 border border-blue-200 p-2 text-center">
 								<p class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Enjoyment</p>
-								<p class="text-2xl font-bold text-gray-900">{{ course.avg_enjoyment }}<span class="text-sm font-normal text-gray-500">/5</span></p>
+								<p class="text-2xl font-bold text-[#0f1b3d]">{{ course.avg_enjoyment }}<span class="text-sm font-normal text-gray-500">/5</span></p>
 							</div>
 						</div>
 						<p class="text-xs text-gray-500 mt-1 text-center">Based on {{ course.rating_count }} rating{{ 's' if course.rating_count != 1 else '' }}</p>
@@ -116,7 +138,7 @@
 
 				<!-- Rating -->
 				<div class="mt-4 pt-4 border-t border-gray-300">
-					<h3 class="font-bold text-gray-900">Rate this Course</h3>
+					<h3 class="font-bold text-[#0f1b3d]">Rate this Course</h3>
 
 					<p class="text-sm text-gray-700 mt-2">Difficulty</p>
 					<div class="star-rating flex gap-1" data-course="{{ course.code }}" data-type="difficulty" data-value="{{ course.user_rating.difficulty if course.user_rating else 0 }}">
@@ -142,11 +164,11 @@
 
 				<!-- Comments -->
 				<div class="mt-4 pt-4 border-t border-gray-300">
-					<h3 class="font-bold text-gray-900">Comments</h3>
+					<h3 class="font-bold text-[#0f1b3d]">Comments</h3>
 
 					<ul class="comment-list mt-2 flex flex-col gap-y-2" data-course="{{ course.code }}">
 						{% for comment in course.comments %}
-						<li class="text-sm text-gray-900">
+						<li class="text-sm text-[#0f1b3d]">
 							<strong>{{ comment.name }}:</strong>
 							{% if comment.difficulty and comment.enjoyment %}
 							<span class="text-xs text-gray-500">(Difficulty: {{ comment.difficulty }}/5, Enjoyment: {{ comment.enjoyment }}/5)</span>
@@ -171,7 +193,7 @@
 						</button>
 						<button
 							type="button"
-							class="anon-toggle-btn rounded-full py-1 px-3 text-xs font-semibold bg-gray-200 hover:bg-gray-300 text-gray-900 cursor-pointer"
+							class="anon-toggle-btn rounded-full py-1 px-3 text-xs font-semibold bg-gray-200 hover:bg-gray-300 text-[#0f1b3d] cursor-pointer"
 							data-course="{{ course.code }}"
 							data-anonymous="false"
 							data-name="{{ current_user.name if current_user else '' }}"

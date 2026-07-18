@@ -3,7 +3,7 @@ function resetGraph() {
     const allProgramButtons = document.querySelectorAll('.program-button');
     allProgramButtons.forEach(btn => {
         btn.classList.remove('bg-blue-800', 'text-white');
-        btn.classList.add('hover:bg-blue-300', 'bg-blue-200', 'text-gray-900');
+        btn.classList.add('hover:bg-blue-300', 'bg-blue-200', 'text-[#0f1b3d]');
     });
 
     const allCourseDetails = document.querySelectorAll('.course-details');
@@ -56,12 +56,35 @@ function highlightPrerequisites(node, colour) {
 
 }
 
-function setActiveNode(node) {
-    resetGraph();
+// Tracks which course's details are currently open, so clicking it again deselects it
+let activeCourseCode = null;
 
+// The "click on a course" hint is only useful before a course is selected —
+// hide it while a course's details are open
+function hideCourseHint() {
+    document.getElementById('course-hint')?.classList.add('hidden');
+}
+
+function showCourseHint() {
+    document.getElementById('course-hint')?.classList.remove('hidden');
+}
+
+function setActiveNode(node) {
     // Get the course code from the node's title element
     const titleElement = node.querySelector('title');
     const courseCode = titleElement.textContent.replace(/\s+/g, '');
+
+    resetGraph();
+
+    // Clicking the currently active course again deselects it
+    if (activeCourseCode === courseCode) {
+        activeCourseCode = null;
+        showCourseHint();
+        return;
+    }
+
+    activeCourseCode = courseCode;
+    hideCourseHint();
 
     // Show the clicked course's details
     const courseDetail = document.getElementById(courseCode);
@@ -74,9 +97,11 @@ function setActiveNode(node) {
 document.querySelectorAll(".program-button").forEach(btn => {
     btn.addEventListener("click", () => {
         resetGraph();
+        activeCourseCode = null;
+        showCourseHint();
 
         // Highlight the active program button
-        btn.classList.remove('hover:bg-blue-300', 'bg-blue-200', 'text-gray-900');
+        btn.classList.remove('hover:bg-blue-300', 'bg-blue-200', 'text-[#0f1b3d]');
         btn.classList.add('bg-blue-800', 'text-white');
 
         const programName = btn.dataset.program;
@@ -111,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
         node.style.cursor = 'pointer';
 
         const ellipse = node.querySelector('ellipse');
-        ellipse.setAttribute('stroke', '#111827');
+        ellipse.setAttribute('stroke', '#0f1b3d');
         ellipse.setAttribute('stroke-width', '0.75');
 
         const textElements = node.querySelectorAll('text');
@@ -120,6 +145,29 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     });
 
+});
+
+// Mobile course list (shown instead of the graph on small screens) — tapping a
+// course just shows its details, since there's no graph to highlight
+document.querySelectorAll('.course-list-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const code = btn.dataset.course;
+
+        document.querySelectorAll('.course-details').forEach(detail => {
+            detail.style.display = 'none';
+        });
+
+        // Tapping the currently active course again deselects it
+        if (activeCourseCode === code) {
+            activeCourseCode = null;
+            showCourseHint();
+            return;
+        }
+
+        activeCourseCode = code;
+        hideCourseHint();
+        document.getElementById(code).style.display = 'block';
+    });
 });
 
 // ---------------------------------------------------------------------------
@@ -134,11 +182,11 @@ function updateCourseReviews(code, reviews) {
             ? `<div class="grid grid-cols-2 gap-2">
                 <div class="rounded-lg bg-blue-50 border border-blue-200 p-2 text-center">
                     <p class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Difficulty</p>
-                    <p class="text-2xl font-bold text-gray-900">${reviews.avg_difficulty}<span class="text-sm font-normal text-gray-500">/5</span></p>
+                    <p class="text-2xl font-bold text-[#0f1b3d]">${reviews.avg_difficulty}<span class="text-sm font-normal text-gray-500">/5</span></p>
                 </div>
                 <div class="rounded-lg bg-blue-50 border border-blue-200 p-2 text-center">
                     <p class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Enjoyment</p>
-                    <p class="text-2xl font-bold text-gray-900">${reviews.avg_enjoyment}<span class="text-sm font-normal text-gray-500">/5</span></p>
+                    <p class="text-2xl font-bold text-[#0f1b3d]">${reviews.avg_enjoyment}<span class="text-sm font-normal text-gray-500">/5</span></p>
                 </div>
                </div>
                <p class="text-xs text-gray-500 mt-1 text-center">Based on ${reviews.rating_count} rating${reviews.rating_count !== 1 ? 's' : ''}</p>`
@@ -150,7 +198,7 @@ function updateCourseReviews(code, reviews) {
         commentList.innerHTML = '';
         reviews.comments.forEach(comment => {
             const li = document.createElement('li');
-            li.className = 'text-sm text-gray-900';
+            li.className = 'text-sm text-[#0f1b3d]';
 
             const strong = document.createElement('strong');
             strong.textContent = `${comment.name}: `;
